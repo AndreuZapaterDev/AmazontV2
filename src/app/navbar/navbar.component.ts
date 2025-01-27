@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { DarkModeComponent } from '../dark-mode/dark-mode.component';
+
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [DarkModeComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
