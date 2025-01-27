@@ -1,17 +1,14 @@
 nav{
   background-color: var(--background-navbar);
+  z-index: 2;
 }
 
 .primary-container {
   padding: 10px 20px 10px 40px;
   color: white;
-  z-index: 2;
   display: flex;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  background-color: var(--background-navbar);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   gap: 30px;
 }
 
