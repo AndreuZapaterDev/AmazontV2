@@ -1,5 +1,6 @@
 <!-- NAVBAR DESKTOP -->
 <nav>
+  <div class="primary-container">
     <a href="">
       <img class="logo" src="/images/White_logo.png" alt="Logo">
     </a>
@@ -15,13 +16,13 @@
       </form>
     </div>
 
-    <div>
-      <button class="learn-more">
-        <span class="circle" aria-hidden="true">
-        <span class="icon arrow"></span>
-        </span>
-        <span class="button-text">Sign Up</span>
-      </button>
+    <div class="darkmode-container">
+      <app-dark-mode></app-dark-mode>
+    </div>
+
+    <div class="languages-container">
+      <button><img src="/images/circle_spain.png" alt=""></button>
+      <button><img src="/images/circle_uk.png" alt=""></button>
     </div>
 
     <div class="cart-container">
@@ -32,10 +33,16 @@
         </div>
       </button>
     </div>
+
     <div>
-      <app-dark-mode></app-dark-mode>
+      <button class="learn-more">
+        <span class="circle" aria-hidden="true">
+        <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Sign Up</span>
+      </button>
     </div>
-    
+  </div>
 </nav>
 
 <!-- NAVBAR MOBILE -->

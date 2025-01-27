@@ -1,21 +1,30 @@
 nav{
-  background-color: blue;
+  background-color: var(--background-navbar);
+}
+
+.primary-container {
+  padding: 10px 20px 10px 40px;
   color: white;
-  padding: 10px;
   z-index: 2;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: var(--background-navbar);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  gap: 30px;
 }
+
 .icon{
   color: white;
   font-size: 5vw;
 }
 
 .logo{
-  width: 5vw;
+  width: 8vw;
 }
+
+/* --------------------------- BUSCADOR ----------------------------------- */
 
 .search-container{
 width: 100%;
@@ -48,6 +57,10 @@ justify-content: center;
   color: black;
 }
 
+.search-box input::placeholder {
+  color: black;
+}
+
 .search-box button i{
   margin-top: 5px;
   font-size: 25px;
@@ -67,7 +80,7 @@ justify-content: center;
   position: absolute;
   bottom: 0;
   left: 410px;
-  animation: slider 10s linear infinite;
+  animation: slider 8s linear infinite;
 }
 
 .slider i{
@@ -94,6 +107,33 @@ justify-content: center;
   84% {transform: translateY(90px);}
   100% {transform: translateY(90px);}
 }
+
+
+/* ------------------------------------------------ IDIOMAS --------------------------------------------- */
+
+.languages-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.languages-container button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.languages-container button:hover {
+  transform: scale(1.2);
+}
+
+.languages-container img {
+  width: 65px;
+}
+/* ---------------------------------------------------- CARRITO ----------------------------------------------- */
 
 .cart-container {
   position: relative;
@@ -131,7 +171,7 @@ justify-content: center;
 }
 
 
-/* SIGN UP */
+/*------------------------------------------------- SIGN UP ----------------------------------------------*/
  button.learn-more {
   position: relative;
   display: inline-block;
@@ -155,7 +195,7 @@ justify-content: center;
   margin: 0;
   width: 3rem;
   height: 3rem;
-  background: #282936;
+  background: #fa9c20;
   border-radius: 1.625rem;
  }
  
@@ -197,7 +237,7 @@ justify-content: center;
   bottom: 0;
   padding: 0.75rem 0;
   margin: 0 0 0 1.85rem;
-  color: #282936;
+  color: white;
   font-weight: 700;
   line-height: 1.6;
   text-align: center;
