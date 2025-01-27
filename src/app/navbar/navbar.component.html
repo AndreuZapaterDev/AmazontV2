@@ -3,10 +3,39 @@
     <a href="">
       <img class="logo" src="/images/White_logo.png" alt="Logo">
     </a>
-    <p>
-      hola que tal
-    </p>
-    <app-dark-mode></app-dark-mode>
+    <div class="search-container">
+      <form class="search-box" action="">
+        <input type="text" placeholder="Encuentra lo que necesitas al mejor precio">
+        <button type="submit"><i class="fi fi-br-search"></i></button>
+        <div class="slider">
+          <div><i class="fi fi-br-hamburger-soda"></i></div>
+          <div><i class="fi fi-br-volleyball"></i></div>
+          <div><i class="fi fi-br-pills"></i></div>
+        </div>
+      </form>
+    </div>
+
+    <div>
+      <button class="learn-more">
+        <span class="circle" aria-hidden="true">
+        <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Sign Up</span>
+      </button>
+    </div>
+
+    <div class="cart-container">
+      <button>
+        <i class="fi fi-br-shopping-cart"></i>
+        <div class="number-container">
+          <h3>0</h3>
+        </div>
+      </button>
+    </div>
+    <div>
+      <app-dark-mode></app-dark-mode>
+    </div>
+    
 </nav>
 
 <!-- NAVBAR MOBILE -->
