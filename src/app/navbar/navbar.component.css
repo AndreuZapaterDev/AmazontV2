@@ -290,3 +290,12 @@ justify-content: center;
 .secondary-navbar a:hover {
   color: #fa9c20;
 }
+
+
+/* ------------------------------------------------   MOBILE ----------------------------------------- */
+
+.primary-navbar-mobile{
+  background-color: var(--background-navbar);
+  z-index: 2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}

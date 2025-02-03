@@ -1,12 +1,15 @@
 <!-- NAVBAR DESKTOP -->
-<nav class="primary-navbar">
+<nav class="primary-navbar hidden sm:block">
   <div class="primary-container">
     <a href="">
-      <img class="logo" src="/images/White_logo.png" alt="Logo">
+      <img class="logo" src="/images/White_logo.png" alt="Logo" />
     </a>
     <div class="search-container">
       <form class="search-box" action="">
-        <input type="text" placeholder="Encuentra lo que necesitas al mejor precio">
+        <input
+          type="text"
+          placeholder="Encuentra lo que necesitas al mejor precio"
+        />
         <button type="submit"><i class="fi fi-br-search"></i></button>
         <div class="slider">
           <div><i class="fi fi-br-hamburger-soda"></i></div>
@@ -21,8 +24,8 @@
     </div>
 
     <div class="languages-container">
-      <button><img src="/images/circle_spain.png" alt=""></button>
-      <button><img src="/images/circle_uk.png" alt=""></button>
+      <button><img src="/images/circle_spain.png" alt="" /></button>
+      <button><img src="/images/circle_uk.png" alt="" /></button>
     </div>
 
     <div class="cart-container">
@@ -37,7 +40,7 @@
     <div>
       <button class="learn-more">
         <span class="circle" aria-hidden="true">
-        <span class="icon arrow"></span>
+          <span class="icon arrow"></span>
         </span>
         <span class="button-text">Sign Up</span>
       </button>
@@ -45,7 +48,7 @@
   </div>
 </nav>
 
-<nav class="secondary-navbar">
+<nav class="secondary-navbar  hidden sm:block">
   <div class="secundary-container">
     <ul>
       <li><a href="">Inicio</a></li>
@@ -56,3 +59,51 @@
   </div>
 </nav>
 <!-- NAVBAR MOBILE -->
+<nav class="primary-navbar-mobile block sm:hidden">
+  <div class="primary-container">
+    <a href="">
+      <img class="logo" src="/images/White_logo.png" alt="Logo" />
+    </a>
+    <div class="search-container">
+      <form class="search-box" action="">
+        <input
+          type="text"
+          placeholder="Encuentra lo que necesitas al mejor precio"
+        />
+        <button type="submit"><i class="fi fi-br-search"></i></button>
+        <div class="slider">
+          <div><i class="fi fi-br-hamburger-soda"></i></div>
+          <div><i class="fi fi-br-volleyball"></i></div>
+          <div><i class="fi fi-br-pills"></i></div>
+        </div>
+      </form>
+    </div>
+
+    <div class="darkmode-container">
+      <app-dark-mode></app-dark-mode>
+    </div>
+
+    <div class="languages-container">
+      <button><img src="/images/circle_spain.png" alt="" /></button>
+      <button><img src="/images/circle_uk.png" alt="" /></button>
+    </div>
+
+    <div class="cart-container">
+      <button>
+        <i class="fi fi-br-shopping-cart"></i>
+        <div class="number-container">
+          <h3>0</h3>
+        </div>
+      </button>
+    </div>
+
+    <div>
+      <button class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Sign Up</span>
+      </button>
+    </div>
+  </div>
+</nav>
