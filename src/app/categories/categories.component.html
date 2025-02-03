@@ -1,0 +1,39 @@
+<div class="categories">
+  <button (click)="previousCategory()">
+    <i class="fi fi-br-angle-double-small-left icon-sm"></i>
+  </button>
+  <a
+    [routerLink]="['/home/categories', getCategoryCode(getCategory1())]"
+    style="text-decoration: none"
+  >
+    {{ getCategory1() }}
+  </a>
+  <a
+    [routerLink]="['/home/categories', getCategoryCode(getCategory2())]"
+    style="text-decoration: none"
+  >
+    {{ getCategory2() }}
+  </a>
+  <a
+    [routerLink]="['/home/categories', getCategoryCode(getCategory3())]"
+    style="text-decoration: none"
+  >
+    {{ getCategory3() }}
+  </a>
+  <a
+    [routerLink]="['/home/categories', getCategoryCode(getCategory4())]"
+    style="text-decoration: none"
+  >
+    {{ getCategory4() }}
+  </a>
+  <a
+    [routerLink]="['/home/categories', getCategoryCode(getCategory5())]"
+    style="text-decoration: none"
+  >
+    {{ getCategory5() }}
+  </a>
+  <button (click)="nextCategory()">
+    <i class="fi fi-br-angle-double-small-right icon-sm"></i>
+  </button>
+</div>
+<router-outlet></router-outlet>

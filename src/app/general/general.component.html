@@ -1,0 +1,57 @@
+<div class="contenedor-principal">
+  <!-- Ofertes de Nadal -->
+  <div class="separador">
+    <hr class="linea" />
+    <h3>Ofertas de Navidad</h3>
+    <hr class="linea" />
+  </div>
+  <div class="carousel">
+    <button (click)="previous_discount()">
+      <i class="fi fi-br-angle-double-small-left icon"></i>
+    </button>
+
+    <div class="products">
+      @for (product of visibleDiscount; track product.id) {
+      <app-products [product]="product"></app-products>
+      }
+    </div>
+
+    <button (click)="next_discount()">
+      <i class="fi fi-br-angle-double-small-right icon"></i>
+    </button>
+  </div>
+
+  <!-- Productes -->
+  <div class="separador">
+    <hr class="linea" />
+    <h3>Productos destacados</h3>
+    <hr class="linea" />
+  </div>
+
+  <div class="carousel">
+    <button (click)="previous()">
+      <i class="fi fi-br-angle-double-small-left icon"></i>
+    </button>
+
+    <div class="products">
+      @for (product of visibleProducts; track product.id) {
+      <app-products [product]="product"></app-products>
+      }
+    </div>
+
+    <button (click)="next()">
+      <i class="fi fi-br-angle-double-small-right icon"></i>
+    </button>
+  </div>
+  <!-- Categories en tendencia -->
+  <div class="tendency">
+    <h3>Categorías en tendencia</h3>
+    <div class="row">
+      @for(tendencia of tendencias; track tendencia.id) {
+      <div class="contenedor-categoria">
+        <!-- <app-category [category]="tendencia.name"></app-category> -->
+      </div>
+      }
+    </div>
+  </div>
+</div>
