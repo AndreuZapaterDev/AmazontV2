@@ -12,8 +12,10 @@
 }
 :root {
 --background-navbar: #01497C;
+--background-navbar2: #2A6F97;
 }
 
 [data-theme='dark'] {
   --background-navbar: black;
+  --background-navbar2: rgb(46, 46, 46);
 }

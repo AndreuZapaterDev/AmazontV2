@@ -1,6 +1,7 @@
-nav{
+.primary-navbar{
   background-color: var(--background-navbar);
   z-index: 2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .primary-container {
@@ -8,7 +9,6 @@ nav{
   color: white;
   display: flex;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   gap: 30px;
 }
 
@@ -158,7 +158,7 @@ justify-content: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem; 
+  font-size: 1rem;
 }
 
 .number-container h3 {
@@ -184,7 +184,7 @@ justify-content: center;
   width: 12rem;
   height: auto;
  }
- 
+
  button.learn-more .circle {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: relative;
@@ -195,7 +195,7 @@ justify-content: center;
   background: #fa9c20;
   border-radius: 1.625rem;
  }
- 
+
  button.learn-more .circle .icon {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
@@ -204,7 +204,7 @@ justify-content: center;
   margin: auto;
   background: #fff;
  }
- 
+
  button.learn-more .circle .icon.arrow {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   left: 0.625rem;
@@ -212,7 +212,7 @@ justify-content: center;
   height: 0.125rem;
   background: none;
  }
- 
+
  button.learn-more .circle .icon.arrow::before {
   position: absolute;
   content: "";
@@ -224,7 +224,7 @@ justify-content: center;
   border-right: 0.125rem solid #fff;
   transform: rotate(45deg);
  }
- 
+
  button.learn-more .button-text {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
@@ -240,16 +240,53 @@ justify-content: center;
   text-align: center;
   text-transform: uppercase;
  }
- 
+
  button:hover .circle {
   width: 100%;
  }
- 
+
  button:hover .circle .icon.arrow {
   background: #fff;
   transform: translate(1rem, 0);
  }
- 
+
  button:hover .button-text {
   color: #fff;
  }
+
+
+/*  ------------------------------------------------- SECONDARY NAVBAR ---------------------------------------------- */
+
+.secondary-navbar {
+  background-color: var(--background-navbar2);
+  padding: 10px 0;
+}
+
+.secondary-navbar .secundary-container {
+  display: flex;
+  justify-content: center;
+}
+
+.secondary-navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.secondary-navbar li {
+  display: inline;
+}
+
+.secondary-navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+}
+
+.secondary-navbar a:hover {
+  color: #fa9c20;
+}
