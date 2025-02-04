@@ -1,4 +1,4 @@
-@if(product().discount){
+<!-- @if(product().discount){
 <div class="product-container">
   <img [src]="product().url" alt="product_image" />
   <p class="product-name">{{ product().name }}</p>
@@ -18,4 +18,14 @@
   <p class="product-price">{{ product().price }}€</p>
   <p class="product-stars">{{ numberStars }}</p>
 </div>
-}
+} -->
+
+@if(product().discount){
+  <div class="container">
+    <div class="card_box">
+        <span></span>
+    </div>
+  </div>
+  }@else {
+<p>test</p>
+  }

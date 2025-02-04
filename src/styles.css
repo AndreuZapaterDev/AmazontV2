@@ -10,12 +10,18 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+html{
+  background-color: var(--background-color);
+}
 :root {
---background-navbar: #01497C;
---background-navbar2: #2A6F97;
+  --background-color: white;
+  --background-navbar: #013A63;
+  --background-navbar2: #01497C;
+  --secondary-color: #fa9c20;
 }
 
 [data-theme='dark'] {
   --background-navbar: black;
-  --background-navbar2: rgb(46, 46, 46);
+  --background-navbar2: #212529;
+  --background-color: #495057;
 }

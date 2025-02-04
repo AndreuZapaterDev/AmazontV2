@@ -150,7 +150,7 @@ justify-content: center;
   position: absolute;
   top: -5px;
   right: -5px;
-  background-color: red;
+  background-color: var(--secondary-color);
   color: white;
   border-radius: 50%;
   width: 20px;

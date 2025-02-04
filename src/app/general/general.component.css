@@ -36,6 +36,42 @@ img {
   margin-left: 10vw;
   margin-right: 10vw;
 }
+
+/* ------------------------------------------------------ BANNER -------------------------------------------------------*/
+
+.banner {
+  background-image: linear-gradient(to bottom, var(--secondary-color),var(--secondary-color) , var(--background-color));
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-text {
+  display: flex;
+  align-items: center;
+  font-size: 3vw;
+}
+
+.banner-text h2 {
+  margin-right: 20px;
+}
+
+.img-sales {
+  max-width: 10vw;
+  max-height: 10vh;
+  margin: 1vw 0;
+}
+
+.banner h3 {
+  font-size: 2vw;
+  color: var(--text);
+}
+
 .categories {
   background-color: var(--secondary);
   display: flex;
@@ -126,6 +162,8 @@ img {
   overflow: hidden;
   flex: 1;
   justify-content: center;
+  margin: 10px;
+  padding: 10px;
 }
 
 .carousel .products app-products {
