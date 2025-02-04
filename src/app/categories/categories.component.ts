@@ -17,6 +17,7 @@ export class CategoriesComponent {
     { id: 4, name: 'Hogar', category: 'home' },
     { id: 5, name: 'Juguetes', category: 'toys' },
     { id: 6, name: 'Deportes', category: 'sports' },
+    { id: 7, name: 'Cocina', category: 'kitchen' },
   ];
 
   //Funciones relacionadas con las categorías
