@@ -40,13 +40,11 @@ img {
 /* ------------------------------------------------------ BANNER -------------------------------------------------------*/
 
 .banner {
-  /* background-image: linear-gradient(to bottom, var(--secondary-color),var(--secondary-color) , var(--background-color)); */
-  background-color: var(--secondary-color);
+  background-image: linear-gradient(to bottom, var(--secondary-color),var(--secondary-color) , var(--background-color));
   color: white;
   text-align: center;
   font-weight: bold;
-  margin-bottom: 20px;
-  height: 60vh;
+  height: 35vh;
   display: flex;
   flex-direction: column;
   align-items: center;

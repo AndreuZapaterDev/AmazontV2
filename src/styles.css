@@ -23,5 +23,7 @@ html{
 [data-theme='dark'] {
   --background-navbar: black;
   --background-navbar2: #212529;
-  --background-color: #495057;
+  --background-color: #191919;
+  --secondary-color: #013A63;
+
 }

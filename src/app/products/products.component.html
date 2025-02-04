@@ -24,8 +24,15 @@
   <div class="container">
     <div class="card_box">
       <div class="card-container">
-        <img [src]="product().url" alt="product_image" />
-        <p class="product-name">{{ product().name }}</p>
+        <img class="product-image-d" [src]="product().url" alt="product_image" />
+        <div class="line1">
+          <p class="product-name-d">{{ product().name }}</p>
+          <div class="span-discount-d"> <p class="product-discount-d">{{ product().discount }}%</p></div>
+        </div>
+        <div class="line2">
+          <p class="product-discounted-d">{{ discountedPrice }}€</p>
+          <p class="product-price-discount-d">{{ product().price }}€</p>
+        </div>
       </div>
         <span></span>
     </div>

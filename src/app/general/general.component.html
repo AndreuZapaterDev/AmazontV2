@@ -4,28 +4,27 @@
         <h2>¡Rebajas de Invierno!</h2>
         <img class="img-sales" src="/images/50_2.png" alt="sales">
       </div>
-      <h3> Hasta un 50% de descuento en productos seleccionados</h3>
-
-      <div class="carousel">
-        <button (click)="previous_discount()">
-          <i class="fi fi-br-angle-double-small-left icon"></i>
-        </button>
-      
-        <div class="products">
-          @for (product of visibleDiscount; track product.id) {
-          <app-products [product]="product"></app-products>
-          }
-        </div>
-      
-        <button (click)="next_discount()">
-          <i class="fi fi-br-angle-double-small-right icon"></i>
-        </button>
-      </div>
-      
+      <h3> Hasta un 50% de descuento en productos seleccionados</h3>   
     </div>
 
 <div class="contenedor-principal">
     
+  <div class="carousel">
+    <button (click)="previous_discount()">
+      <i class="fi fi-br-angle-double-small-left icon"></i>
+    </button>
+  
+    <div class="products">
+      @for (product of visibleDiscount; track product.id) {
+      <app-products [product]="product"></app-products>
+      }
+    </div>
+  
+    <button (click)="next_discount()">
+      <i class="fi fi-br-angle-double-small-right icon"></i>
+    </button>
+  </div>
+
   <!-- Productes -->
   <div class="separador">
     <hr class="linea" />

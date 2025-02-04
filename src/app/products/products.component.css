@@ -52,21 +52,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
+  padding: 20px;
 }
 
 .card_box {
   width: 300px;
   height: 350px;
   border-radius: 20px;
-  background-color: black;
+  background-color: #F8F9FA;
   position: relative;
   cursor: pointer;
   transition: all .3s;
 }
 
 .card_box:hover {
-  transform: scale(0.9);
+  transform: scale(1.05);
 }
 
 .card-container{
@@ -76,17 +76,48 @@
   justify-content: center;
 }
 
-.card_box img {
-  width: 100%;
+.product-image-d {
+  width: 75%;
   height: auto;
-  border-radius: 20px 20px 0 0;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
-.product-name {
-  color: white;
+.line1, .line2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.product-name-d {
   font-size: 1.2rem;
-  text-align: center;
-  margin: 10px 0;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.span-discount-d{
+  background-color: red;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.product-discount-d {
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+}
+
+.product-discounted-d {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: green;
+}
+
+.product-price-discount-d {
+  font-size: 1rem;
+  text-decoration: line-through;
+  color: var(--text);
 }
 
 .card_box span {
