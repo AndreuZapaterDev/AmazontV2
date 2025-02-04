@@ -23,6 +23,10 @@
 @if(product().discount){
   <div class="container">
     <div class="card_box">
+      <div class="card-container">
+        <img [src]="product().url" alt="product_image" />
+        <p class="product-name">{{ product().name }}</p>
+      </div>
         <span></span>
     </div>
   </div>
