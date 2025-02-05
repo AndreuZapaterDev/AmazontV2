@@ -24,14 +24,17 @@
   <div class="container">
     <div class="card_box">
       <div class="card-container">
-        <img class="product-image-d" [src]="product().url" alt="product_image" />
-        <div class="line1">
-          <p class="product-name-d">{{ product().name }}</p>
-          <div class="span-discount-d"> <p class="product-discount-d">{{ product().discount }}%</p></div>
+        <div class="span-discount-d"> <p class="product-discount-d">{{ product().discount }}%</p></div>
+        <div class="img-container-d">
+          <img class="product-image-d" [src]="product().url" alt="product_image" />
         </div>
-        <div class="line2">
+        <div class="info-container">
+          <p class="product-name-d">{{ product().name }}</p>
+          <p class="product-stars-d">{{ numberStars }}</p>
           <p class="product-discounted-d">{{ discountedPrice }}€</p>
-          <p class="product-price-discount-d">{{ product().price }}€</p>
+          <p class="product-price-discount-d">Antes: {{ product().price }}€</p>
+          <p class="shipping-d">Envío en 1 dia</p>
+          <p class="shipping2-d">Entrega gratis mañana</p>
         </div>
       </div>
         <span></span>
