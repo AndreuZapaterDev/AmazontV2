@@ -1,22 +1,29 @@
-{{ categoryName }}
-<div class="filters">
-  <input
-    type="text"
-    name="search"
-    id="search"
-    placeholder="Buscar"
-    (input)="onSearch($event)"
-  />
+<div class="category-container">
+  <h2 class="category-title">{{ categoryName }}</h2>
 
-  <label for="filters">Ordenar por</label>
-  <select name="filters" id="filters" (change)="onSort($event)">
-    <option value="default" selected>-- Seleccionar --</option>
-    <option value="price+">Precio más alto</option>
-    <option value="price-">Precio más bajo</option>
-    <option value="name">Nombre</option>
-  </select>
+  <div class="search-sort-container">
+    <input
+      type="text"
+      name="search"
+      id="search"
+      placeholder="Buscar"
+      (input)="onSearch($event)"
+    />
+
+    <label for="filters">Ordenar por</label>
+    <select name="filters" id="filters" (change)="onSort($event)">
+      <option value="default" selected>-- Seleccionar --</option>
+      <option value="price+">Precio más alto</option>
+      <option value="price-">Precio más bajo</option>
+      <option value="name">Nombre</option>
+    </select>
+  </div>
+
+  <div class="products-container">
+    @for(product of displayedProducts; track product){
+      <div class="product-card">
+        <app-products [product]="product"></app-products>
+      </div>
+    }
+  </div>
 </div>
-
-@for(product of displayedProducts; track product){
-<app-products [product]="product"></app-products>
-}
