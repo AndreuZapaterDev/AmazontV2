@@ -9,21 +9,21 @@
 
 <div class="contenedor-principal">
     
-<div class="carousel">
-  <button class="carousel-button left" (click)="previous_discount()">
-    <i class="fi fi-br-angle-double-small-left icon"></i>
-  </button>
-
-  <div class="products">
-    @for (product of visibleDiscount; track product.id) {
+  <div class="carousel">
+    <button (click)="previous_discount()">
+      <i class="fi fi-br-angle-double-small-left icon"></i>
+    </button>
+  
+    <div class="products">
+      @for (product of visibleDiscount; track product.id) {
       <app-products [product]="product"></app-products>
-    }
+      }
+    </div>
+  
+    <button (click)="next_discount()">
+      <i class="fi fi-br-angle-double-small-right icon"></i>
+    </button>
   </div>
-
-  <button class="carousel-button right" (click)="next_discount()">
-    <i class="fi fi-br-angle-double-small-right icon"></i>
-  </button>
-</div>
 
   <!-- Productes -->
   <div class="separador">
@@ -33,28 +33,27 @@
   </div>
 
   <div class="carousel">
-    <button class="carousel-button left" (click)="previous_discount()">
+    <button (click)="previous()">
       <i class="fi fi-br-angle-double-small-left icon"></i>
     </button>
-  
+
     <div class="products">
-      @for (product of visibleDiscount; track product.id) {
-        <app-products [product]="product"></app-products>
+      @for (product of visibleProducts; track product.id) {
+      <app-products [product]="product"></app-products>
       }
     </div>
-  
-    <button class="carousel-button right" (click)="next_discount()">
+
+    <button (click)="next()">
       <i class="fi fi-br-angle-double-small-right icon"></i>
     </button>
   </div>
-
   <!-- Categories en tendencia -->
   <div class="tendency">
     <h3>Categorías en tendencia</h3>
     <div class="row">
       @for(tendencia of tendencias; track tendencia.id) {
       <div class="contenedor-categoria">
-        <app-category [category]="tendencia.name"></app-category>
+        <!-- <app-category [category]="tendencia.name"></app-category> -->
       </div>
       }
     </div>

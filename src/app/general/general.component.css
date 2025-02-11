@@ -71,49 +71,103 @@ img {
   color: var(--text);
 }
 
+.categories {
+  background-color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1vw;
+  padding-top: 0.5vw;
+  border-bottom: solid 0.1vw var(--text);
+}
 
-/* ----------------------------------------------  carrusel  ---------------------------------------------- */
+.categories button {
+  background-color: transparent;
+  color: var(--text);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.categories button:hover {
+  color: var(--principal);
+}
+
+.categories a {
+  margin: 0 1vw;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.5vw;
+  font-weight: bold;
+  margin-bottom: 0.5vw;
+}
+
+.categories a:hover {
+  text-decoration: underline;
+  color: var(--principal);
+}
+
+.xmas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1vw;
+}
+
+.xmas button {
+  background-color: transparent;
+  color: var(--text);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.xmas button:hover {
+  color: var(--principal);
+}
+
+.container-xmas {
+  background-color: var(--secondary);
+  margin: 1vw;
+  padding: 0.5vw;
+  border-radius: 0.5vw;
+  border: solid 0.2vw var(--container);
+  box-shadow: 0 0 1vw var(--box-shadow-color);
+}
+
+.xmas img {
+  margin: 1vw;
+}
 
 .carousel {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
+  justify-content: space-between;
 }
 
-.carousel .products {
-  display: flex;
-  justify-content: center;
-  margin: 10px;
-  padding: 10px;
-  position: relative;
-  z-index: 1;
-}
-
-.carousel-button {
+.carousel button {
   background-color: transparent;
   border: none;
   cursor: pointer;
   padding: 10px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 3;
 }
 
-.carousel-button.left {
-  left: 10px;
+.carousel .products {
+  display: flex;
+  overflow: hidden;
+  flex: 1;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
 }
 
-.carousel-button.right {
-  right: 10px;
+.carousel .products app-products {
+  margin: 0 10px;
 }
-
-.carousel-button i {
-  font-size: 5rem;
-}
-
-/* -------------------------------------------------------- TENDENCIA ------------------------------------------------------ */
 
 .tendency {
   margin: 20px 0;
