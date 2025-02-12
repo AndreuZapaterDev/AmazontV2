@@ -1,6 +1,5 @@
 <div class="category-container">
-  <h2 class="category-title">{{ categoryName }}</h2>
-
+  
   <div class="search-sort-container">
     <input
       type="text"
@@ -9,7 +8,7 @@
       placeholder="Buscar"
       (input)="onSearch($event)"
     />
-
+<h2 class="category-title">{{ categoryName }}</h2>
     <label for="filters">Ordenar por</label>
     <select name="filters" id="filters" (change)="onSort($event)">
       <option value="default" selected>-- Seleccionar --</option>
@@ -21,9 +20,7 @@
 
   <div class="products-container">
     @for(product of displayedProducts; track product){
-      <div class="product-card">
         <app-products [product]="product"></app-products>
-      </div>
     }
   </div>
 </div>
