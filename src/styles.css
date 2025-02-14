@@ -4,20 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
-html{
+
+html {
   background-color: var(--background-color);
 }
+
 :root {
   --background-color: white;
   --background-navbar: #013A63;
   --background-navbar2: #01497C;
   --secondary-color: #fa9c20;
+  --text-color: #333;
+  --card-background-color: #fff;
+  --border-color: #ccc;
+  --price-color: #27ae60;
+  --star-color: #f39c12;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 [data-theme='dark'] {
@@ -25,5 +33,10 @@ html{
   --background-navbar2: #212529;
   --background-color: #191919;
   --secondary-color: #013A63;
-
+  --text-color: #f8f9fa;
+  --card-background-color: #333;
+  --border-color: #555;
+  --price-color: #2ecc71;
+  --star-color: #f1c40f;
+  --box-shadow-color: rgba(255, 255, 255, 0.7);
 }

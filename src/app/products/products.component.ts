@@ -24,7 +24,6 @@ export class ProductsComponent {
     const discount = this.product().discount || 0;
     this.discountedPrice =
       this.product().price - (this.product().price * discount) / 100;
-    // console.debug('Discounted price:', this.discountedPrice);
   }
 
   ngOnInit() {
