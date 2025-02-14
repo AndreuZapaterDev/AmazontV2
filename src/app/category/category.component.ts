@@ -94,7 +94,7 @@ export class CategoryComponent {
 
   constructor(private route: ActivatedRoute) {
     this.route.paramMap.subscribe((params) => {
-      this.categoryName = params.get('name');
+      this.categoryName = params.get('name') || 'clothes';
       this.getCategoryProducts();
     });
   }

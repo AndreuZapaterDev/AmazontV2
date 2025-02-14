@@ -43,16 +43,33 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .sort-container label {
   font-size: 1rem;
   color: var(--text-color);
+  font-weight: bold;
 }
 
 .sort-container select {
-  padding: 10px;
+  padding: 10px 15px;
   border-radius: 5px;
   border: 1px solid var(--border-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-background-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.sort-container select:hover {
+  border-color: var(--secondary-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sort-container select:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }

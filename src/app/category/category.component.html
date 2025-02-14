@@ -9,13 +9,15 @@
       (input)="onSearch($event)"
     />
 <h2 class="category-title">{{ categoryName }}</h2>
-    <label for="filters">Ordenar por</label>
-    <select name="filters" id="filters" (change)="onSort($event)">
-      <option value="default" selected>-- Seleccionar --</option>
-      <option value="price+">Precio más alto</option>
-      <option value="price-">Precio más bajo</option>
-      <option value="name">Nombre</option>
-    </select>
+<div class="sort-container">
+  <label for="filters">Ordenar por:</label>
+  <select name="filters" id="filters" (change)="onSort($event)">
+    <option value="default" selected>Seleccionar</option>
+    <option value="price+">Precio más alto</option>
+    <option value="price-">Precio más bajo</option>
+    <option value="name">Nombre</option>
+  </select>
+</div>
   </div>
 
   <div class="products-container">
