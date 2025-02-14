@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { DarkModeComponent } from '../dark-mode/dark-mode.component';
-
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [DarkModeComponent],
+  imports: [DarkModeComponent, RouterModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
-
-}
+export class NavbarComponent {}

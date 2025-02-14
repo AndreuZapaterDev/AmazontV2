@@ -19,7 +19,7 @@ export class CategoryComponent {
       price: 10.0,
       stars: 4,
       category: 'home',
-      discount: 50,
+/*       discount: 50, */
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ export class CategoryComponent {
       price: 20.0,
       stars: 5,
       category: 'toys',
-      discount: 25,
+/*       discount: 25, */
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ export class CategoryComponent {
       price: 15.0,
       stars: 3,
       category: 'sports',
-      discount: 10,
+/*       discount: 10, */
     },
     {
       id: 4,
@@ -46,7 +46,7 @@ export class CategoryComponent {
       price: 25.0,
       stars: 4,
       category: 'kitchen',
-      discount: 20,
+/*       discount: 20, */
     },
     {
       id: 5,
@@ -55,7 +55,7 @@ export class CategoryComponent {
       price: 30.0,
       stars: 5,
       category: 'clothes',
-      discount: 30,
+/*       discount: 30, */
     },
     {
       id: 6,
@@ -64,7 +64,7 @@ export class CategoryComponent {
       price: 500.0,
       stars: 4,
       category: 'electronic',
-      discount: 40,
+/*       discount: 40, */
     },
     {
       id: 7,
@@ -73,7 +73,7 @@ export class CategoryComponent {
       price: 15.0,
       stars: 4,
       category: 'clothes',
-      discount: 0.1,
+/*       discount: 0.1, */
     },
     {
       id: 8,
@@ -82,7 +82,7 @@ export class CategoryComponent {
       price: 30.0,
       stars: 5,
       category: 'clothes',
-      discount: 0.2,
+/*       discount: 0.2, */
     },
   ];
 
