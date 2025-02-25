@@ -1,5 +1,6 @@
 import { Component, input } from '@angular/core';
 import { Product } from '../interfaces/product.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -13,6 +14,12 @@ export class ProductsComponent {
 
   numberStars: string = '';
   discountedPrice: number = 0;
+
+  constructor(private router: Router) {}
+
+  navigateToProduct(product: Product) {
+    this.router.navigate(['/home/product', product.id]);
+  }
 
   getStars() {
     for (let i = 0; i < this.product().stars; i++) {
