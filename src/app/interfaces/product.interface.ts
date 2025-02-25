@@ -6,4 +6,9 @@ export interface Product {
   url: string;
   category: string;
   discount?: number;
+
+  //Imagenes []
+  //Descripcion
+  //Opiniones
+  //Unidades
 }
