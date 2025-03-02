@@ -32,11 +32,11 @@ html {
   --background-navbar: black;
   --background-navbar2: #212529;
   --background-color: #191919;
-  --secondary-color: #013A63;
+  --secondary-color: #fa9c20;
   --text-color: #f8f9fa;
   --card-background-color: #333;
   --border-color: #555;
   --price-color: #2ecc71;
   --star-color: #f1c40f;
-  --box-shadow-color: rgba(255, 255, 255, 0.7);
+  --box-shadow-color: rgba(150, 150, 150, 0.7);
 }
