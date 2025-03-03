@@ -1,0 +1,7 @@
+<div class="card">
+    @for(category of featuredCategories; track category.id) {
+        <p [routerLink]="['/home/categories', category.category]">
+            <span>{{ category.name }}</span>
+        </p>
+    }
+</div>

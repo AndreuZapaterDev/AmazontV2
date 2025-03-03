@@ -25,6 +25,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     category: '',
   };
   
+  mainImage: string = '';
+  productImages: string[] = [];
+  activeImageIndex: number = 0;
+
   quantity: number = 1;
   numberStars: string = '';
   discountedPrice: number = 0;
@@ -32,6 +36,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   reviews: Review[] = [];
   relatedProducts: Product[] = [];
   private routeSub!: Subscription;
+
+  visibleReviews: Review[] = [];
+  maxInitialReviews: number = 2;
+  showingAllReviews: boolean = false;
+
 
   constructor(
     private productService: ProductService,
@@ -61,15 +70,50 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     const product = this.productService.getProduct(this.productId);
     if (product) {
       this.product = product;
+
       this.reviews = this.product.reviews || [];
+      this.visibleReviews = this.reviews.slice(0, this.maxInitialReviews);
+
+      this.mainImage = this.product.url;
+      this.productImages = [
+        this.product.url,
+        '/images/product-angle-1.jpg',
+        '/images/product-angle-2.jpg'
+      ];
+
+      this.activeImageIndex = 0;
       this.generateStars();
       this.calculateDiscountedPrice();
       this.loadRelatedProducts();
+      
       // Resetear el estado de la vista
       this.quantity = 1;
       this.activeTab = 'description';
-      // Hacer scroll al inicio de la página
+      this.showingAllReviews = false;
+
       window.scrollTo(0, 0);
+    }
+  }
+
+  changeMainImage(imageUrl: string, index: number) {
+    // Añadir clase para fade out
+    const imgElement = document.querySelector('.main-image img');
+    if (imgElement) {
+      imgElement.classList.add('image-fade');
+      
+      // Cambiar la imagen después de un breve retraso
+      setTimeout(() => {
+        this.mainImage = imageUrl;
+        this.activeImageIndex = index;
+        
+        // Quitar la clase para fade in
+        setTimeout(() => {
+          imgElement.classList.remove('image-fade');
+        }, 50);
+      }, 300);
+    } else {
+      this.mainImage = imageUrl;
+      this.activeImageIndex = index;
     }
   }
 
@@ -136,10 +180,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     
     return stats;
   }
-
-  visibleReviews: Review[] = [];
-  maxInitialReviews: number = 3;
-  showingAllReviews: boolean = false;
 
   loadReviews() {
     this.reviews = this.product.reviews || [];

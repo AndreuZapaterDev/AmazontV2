@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Category } from '../interfaces/category.interface';
 import { Product } from '../interfaces/product.interface';
 import { ProductsComponent } from '../products/products.component';
+import { FeaturedCategoriesComponent } from '../featured-categories/featured-categories.component';
 
 @Component({
   selector: 'app-general',
   standalone: true,
-  imports: [ProductsComponent],
+  imports: [ProductsComponent, FeaturedCategoriesComponent],
   templateUrl: './general.component.html',
   styleUrl: './general.component.css',
 })

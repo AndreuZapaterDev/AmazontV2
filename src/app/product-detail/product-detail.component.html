@@ -1,21 +1,20 @@
 <div class="product-detail-container">
-    <!-- Columna izquierda: Imagen del producto -->
-    <div class="product-images">
-      <div class="main-image">
-        <img [src]="product.url" [alt]="product.name">
-      </div>
-      <div class="image-thumbnails">
-        <div class="thumbnail active">
-          <img [src]="product.url" alt="Vista principal">
-        </div>
-        <div class="thumbnail">
-          <img src="/images/product-angle-1.jpg" alt="Vista lateral">
-        </div>
-        <div class="thumbnail">
-          <img src="/images/product-angle-2.jpg" alt="Vista trasera">
-        </div>
-      </div>
+  <!-- Columna izquierda: Imagen del producto -->
+  <div class="product-images">
+    <div class="main-image">
+      <img [src]="mainImage" [alt]="product.name">
     </div>
+    <div class="image-thumbnails">
+      @for(img of productImages; track $index) {
+        <div 
+          class="thumbnail" 
+          [class.active]="$index === activeImageIndex"
+          (click)="changeMainImage(img, $index)">
+          <img [src]="img" [alt]="'Vista ' + $index">
+        </div>
+      }
+    </div>
+  </div>
   
     <!-- Columna derecha: Información del producto -->
     <div class="product-info">
@@ -171,7 +170,7 @@
           
             <div class="reviews-list">
               @if(reviews.length > 0) {
-                @for(review of reviews; track review.id) {
+                @for(review of visibleReviews; track review.id) {
                   <div class="review">
                     <div class="reviewer-avatar">
                       <img [src]="review.avatar || '/images/avatar-default.jpg'" alt="Avatar usuario">
@@ -202,8 +201,6 @@
                   <p class="no-reviews">No hay opiniones para este producto. ¿Quieres ser el primero en opinar?</p>
                 }
               </div>
-  
-            <button class="load-more-reviews">Ver más opiniones</button>
           </div>
         
         <div class="tab-panel" [class.active]="activeTab === 'shipping'">

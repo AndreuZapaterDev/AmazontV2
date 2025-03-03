@@ -49,13 +49,13 @@
   </div>
   <!-- Categories en tendencia -->
   <div class="tendency">
-    <h3>Categorías en tendencia</h3>
+    <div class="separador">
+      <hr class="linea" />
+      <h3>Categorias en tendencia</h3>
+      <hr class="linea" />
+    </div>
     <div class="row">
-      @for(tendencia of tendencias; track tendencia.id) {
-      <div class="contenedor-categoria">
-        <!-- <app-category [category]="tendencia.name"></app-category> -->
-      </div>
-      }
+      <app-featured-categories></app-featured-categories>
     </div>
   </div>
 </div>
