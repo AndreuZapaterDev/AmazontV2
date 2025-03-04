@@ -42,6 +42,6 @@ export const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'sign-up', component: SignUpComponent },
-  /*   { path: 'product/:id', component: ProductPageComponent },
-  { path: 'product', component: ProductPageComponent }, */
+
+
 ];

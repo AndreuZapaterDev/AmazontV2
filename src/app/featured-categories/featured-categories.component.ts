@@ -20,7 +20,6 @@ export class FeaturedCategoriesComponent implements OnInit {
     { id: 6, name: 'Deportes', category: 'sports' },
     { id: 7, name: 'Cocina', category: 'kitchen' },
     { id: 8, name: 'Droguería', category: 'drugs' },
-    { id: 9, name: 'Juegos', category: 'games' }
   ];
   
   constructor() {}

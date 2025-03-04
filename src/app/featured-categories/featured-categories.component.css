@@ -1,6 +1,6 @@
 .card {
-  width: 400px;
-  height: 400px;
+  width: 1175px;
+  height: 300px;
   border-radius: 20px;
   display: flex;
   gap: 10px;
@@ -22,7 +22,7 @@
 }
 
 .card p:hover {
-  flex: 4;
+  flex: 2;
   background-color: var(--hover-color);
   border: 3px solid var(--text-color);
 }

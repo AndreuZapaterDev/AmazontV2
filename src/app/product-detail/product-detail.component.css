@@ -15,14 +15,12 @@
     gap: 1rem;
   }
   
-  @media (min-width: 992px) {
-    .product-detail-container {
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas:
-        "images info"
-        "tabs tabs"
-        "related related";
-    }
+  .product-detail-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "images info"
+      "tabs tabs"
+      "related related";
   }
 
   .main-image {
@@ -343,12 +341,10 @@
     gap: 2rem;
   }
   
-  @media (min-width: 768px) {
-    .tab-content-inner {
-      grid-template-columns: 1.5fr 1fr;
-    }
+  .tab-content-inner {
+    grid-template-columns: 1.5fr 1fr;
   }
-  
+
   .description-text {
     color: var(--text-color);
     line-height: 1.8;
