@@ -31,7 +31,8 @@ html {
   --text-muted: #999;
   --discount-color: #d50000;
   --product-background-color: #f3f3f3;
-  --shipping-color: #016ebc;
+  --shipping-color: #0082df;
+  --hover-color: #fa9b20;
 }
 
 [data-theme='dark'] {
@@ -51,4 +52,5 @@ html {
   --discount-color: red;
   --product-background-color: #313131;
   --shipping-color: #fa9c20;
+  --hover-color: #2c3338;
 }
