@@ -7,7 +7,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { GeneralComponent } from './general/general.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { ProductPageComponent } from './product-page/product-page.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 export const routes: Routes = [
@@ -24,15 +23,12 @@ export const routes: Routes = [
         path: 'categories',
         component: CategoriesComponent,
         children: [
+          { path: '', redirectTo: 'clothes', pathMatch: 'full' },
           {
             path: ':name',
             component: CategoryComponent,
           },
         ],
-      },
-      {
-        path: 'products',
-        component: ProductPageComponent,
       },
       { path: 'product/:id', component: ProductDetailComponent },
     ],
@@ -42,6 +38,4 @@ export const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'sign-up', component: SignUpComponent },
-
-
 ];

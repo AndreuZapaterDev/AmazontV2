@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterOutlet, Router, ActivatedRoute } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { Category } from '../interfaces/category.interface';
 
 @Component({
@@ -19,7 +19,7 @@ export class CategoriesComponent implements OnInit {
     { id: 6, name: 'Deportes', category: 'sports' },
     { id: 7, name: 'Cocina', category: 'kitchen' },
     { id: 8, name: 'Droguería', category: 'drugs' },
-    { id: 9, name: 'Juegos', category: 'games' }
+    { id: 9, name: 'Juegos', category: 'games' },
   ];
 
   visibleCategories: Category[] = [];
@@ -27,13 +27,10 @@ export class CategoriesComponent implements OnInit {
   itemsToShow = 5;
   currentCategory = '';
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor() {}
 
   ngOnInit() {
     this.updateVisibleCategories();
-    this.route.paramMap.subscribe(params => {
-      this.currentCategory = params.get('name') || '';
-    });
   }
 
   updateVisibleCategories() {
@@ -50,23 +47,24 @@ export class CategoriesComponent implements OnInit {
   }
 
   previousCategory() {
-    this.currentIndex = (this.currentIndex - 1 + this.categories.length) % this.categories.length;
+    this.currentIndex =
+      (this.currentIndex - 1 + this.categories.length) % this.categories.length;
     this.updateVisibleCategories();
   }
 
   getCategoryIcon(categoryCode: string): string {
     const icons: { [key: string]: string } = {
-      'electronic': 'fi fi-br-computer',
-      'clothes': 'fi fi-br-tshirt',
-      'books': 'fi fi-br-book',
-      'home': 'fi fi-br-home',
-      'toys': 'fi fi-br-baby',
-      'sports': 'fi fi-br-basketball',
-      'kitchen': 'fi fi-br-utensils',
-      'drugs': 'fi fi-br-medicine',
-      'games': 'fi fi-br-gamepad'
+      electronic: 'fi fi-br-computer',
+      clothes: 'fi fi-br-tshirt',
+      books: 'fi fi-br-book',
+      home: 'fi fi-br-home',
+      toys: 'fi fi-br-baby',
+      sports: 'fi fi-br-basketball',
+      kitchen: 'fi fi-br-utensils',
+      drugs: 'fi fi-br-medicine',
+      games: 'fi fi-br-gamepad',
     };
-    
+
     return icons[categoryCode] || 'fi fi-br-box';
   }
 
