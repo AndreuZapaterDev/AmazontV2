@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../interfaces/product.interface';
 import { ProductsComponent } from '../products/products.component';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [ProductsComponent],
+  imports: [ProductsComponent, CommonModule],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css',
 })
@@ -147,4 +148,23 @@ export class CategoryComponent {
     this.sortOption = select.value;
     this.applyFilters();
   }
+
+    // Nuevo método para limpiar la búsqueda
+    clearSearch() {
+      this.searchTerm = '';
+      this.applyFilters();
+    }
+    
+    // Método para resetear todos los filtros
+    resetFilters() {
+      this.searchTerm = '';
+      this.sortOption = 'default';
+      this.getCategoryProducts();
+      
+      // También resetea el select visualmente
+      const selectElement = document.getElementById('filters') as HTMLSelectElement;
+      if (selectElement) {
+        selectElement.value = 'default';
+      }
+    }
 }

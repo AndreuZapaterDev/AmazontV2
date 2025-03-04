@@ -1,28 +1,50 @@
-<div class="category-container">
+<div class="category-page">
+  <div class="category-header">
+    <h1 class="category-title">{{ categoryName | titlecase }}</h1>
+    <p class="category-results">{{ displayedProducts.length }} productos encontrados</p>
+  </div>
   
-  <div class="search-sort-container">
-    <input
-      type="text"
-      name="search"
-      id="search"
-      placeholder="Buscar"
-      (input)="onSearch($event)"
-    />
-<h2 class="category-title">{{ categoryName }}</h2>
-<div class="sort-container">
-  <label for="filters">Ordenar por:</label>
-  <select name="filters" id="filters" (change)="onSort($event)">
-    <option value="default" selected>Seleccionar</option>
-    <option value="price+">Precio más alto</option>
-    <option value="price-">Precio más bajo</option>
-    <option value="name">Nombre</option>
-  </select>
-</div>
+  <div class="filter-section">
+    <div class="search-bar">
+      <i class="fi fi-br-search search-icon"></i>
+      <input
+        type="text"
+        name="search"
+        id="search"
+        placeholder="Buscar productos..."
+        (input)="onSearch($event)"
+      />
+      <button class="clear-search" *ngIf="searchTerm" (click)="clearSearch()">
+        <i class="fi fi-br-cross"></i>
+      </button>
+    </div>
+    
+    <div class="sort-container">
+      <label for="filters">Ordenar por:</label>
+      <div class="select-wrapper">
+        <select name="filters" id="filters" (change)="onSort($event)">
+          <option value="default">Relevancia</option>
+          <option value="price+">Precio más alto</option>
+          <option value="price-">Precio más bajo</option>
+          <option value="name">Nombre (A-Z)</option>
+        </select>
+        <i class="fi fi-br-angle-down"></i>
+      </div>
+    </div>
   </div>
 
-  <div class="products-container">
-    @for(product of displayedProducts; track product){
-        <app-products [product]="product"></app-products>
+  <!-- Estado de carga y mensajes -->
+  @if(displayedProducts.length === 0) {
+    <div class="no-results">
+      <i class="fi fi-br-info"></i>
+      <p>No se encontraron productos que coincidan con tu búsqueda.</p>
+      <button class="reset-button" (click)="resetFilters()">Mostrar todos los productos</button>
+    </div>
+  }
+
+  <div class="products-grid">
+    @for(product of displayedProducts; track product) {
+      <app-products [product]="product"></app-products>
     }
   </div>
 </div>

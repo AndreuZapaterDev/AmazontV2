@@ -1,39 +1,27 @@
-<div class="categories">
-  <button (click)="previousCategory()">
-    <i class="fi fi-br-angle-double-small-left icon-sm"></i>
-  </button>
-  <a
-    [routerLink]="['/home/categories', getCategoryCode(getCategory1())]"
-    style="text-decoration: none"
-  >
-    {{ getCategory1() }}
-  </a>
-  <a
-    [routerLink]="['/home/categories', getCategoryCode(getCategory2())]"
-    style="text-decoration: none"
-  >
-    {{ getCategory2() }}
-  </a>
-  <a
-    [routerLink]="['/home/categories', getCategoryCode(getCategory3())]"
-    style="text-decoration: none"
-  >
-    {{ getCategory3() }}
-  </a>
-  <a
-    [routerLink]="['/home/categories', getCategoryCode(getCategory4())]"
-    style="text-decoration: none"
-  >
-    {{ getCategory4() }}
-  </a>
-  <a
-    [routerLink]="['/home/categories', getCategoryCode(getCategory5())]"
-    style="text-decoration: none"
-  >
-    {{ getCategory5() }}
-  </a>
-  <button (click)="nextCategory()">
-    <i class="fi fi-br-angle-double-small-right icon-sm"></i>
-  </button>
+<div class="categories-nav">
+  <div class="categories-wrapper">
+    <button class="nav-arrow prev-arrow" (click)="previousCategory()" aria-label="Categorías anteriores">
+      <i class="fi fi-br-angle-left"></i>
+    </button>
+
+    <div class="categories-slider">
+      @for(category of visibleCategories; track category.id) {
+        <a class="category-link" 
+           [routerLink]="['/home/categories', category.category]"
+           [class.active]="isCategoryActive(category.category)">
+           
+          <div class="category-icon">
+            <i [class]="getCategoryIcon(category.category)"></i>
+          </div>
+          <span>{{ category.name }}</span>
+        </a>
+      }
+    </div>
+
+    <button class="nav-arrow next-arrow" (click)="nextCategory()" aria-label="Categorías siguientes">
+      <i class="fi fi-br-angle-right"></i>
+    </button>
+  </div>
 </div>
+
 <router-outlet></router-outlet>

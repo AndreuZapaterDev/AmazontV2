@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterLink, RouterOutlet, Router, ActivatedRoute } from '@angular/router';
 import { Category } from '../interfaces/category.interface';
 
 @Component({
@@ -9,7 +9,7 @@ import { Category } from '../interfaces/category.interface';
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css',
 })
-export class CategoriesComponent {
+export class CategoriesComponent implements OnInit {
   categories: Category[] = [
     { id: 1, name: 'Electrónica', category: 'electronic' },
     { id: 2, name: 'Ropa', category: 'clothes' },
@@ -18,55 +18,59 @@ export class CategoriesComponent {
     { id: 5, name: 'Juguetes', category: 'toys' },
     { id: 6, name: 'Deportes', category: 'sports' },
     { id: 7, name: 'Cocina', category: 'kitchen' },
+    { id: 8, name: 'Droguería', category: 'drugs' },
+    { id: 9, name: 'Juegos', category: 'games' }
   ];
 
-  //Funciones relacionadas con las categorías
-  cat1: number = 1;
-  cat2: number = 2;
-  cat3: number = 3;
-  cat4: number = 4;
-  cat5: number = 5;
+  visibleCategories: Category[] = [];
+  currentIndex = 0;
+  itemsToShow = 5;
+  currentCategory = '';
 
-  getCategoryCode(categoryName: string) {
-    const category = this.categories.find((cat) => cat.name === categoryName);
-    return category?.category;
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.updateVisibleCategories();
+    this.route.paramMap.subscribe(params => {
+      this.currentCategory = params.get('name') || '';
+    });
   }
 
-  getCategory1(): string {
-    return this.categories[this.cat1].name;
-  }
-
-  getCategory2(): string {
-    return this.categories[this.cat2].name;
-  }
-
-  getCategory3(): string {
-    return this.categories[this.cat3].name;
-  }
-
-  getCategory4(): string {
-    return this.categories[this.cat4].name;
-  }
-
-  getCategory5(): string {
-    return this.categories[this.cat5].name;
+  updateVisibleCategories() {
+    this.visibleCategories = [];
+    for (let i = 0; i < this.itemsToShow; i++) {
+      const index = (this.currentIndex + i) % this.categories.length;
+      this.visibleCategories.push(this.categories[index]);
+    }
   }
 
   nextCategory() {
-    const totalCategories = this.categories.length;
-    this.cat1 = (this.cat1 + 1) % totalCategories;
-    this.cat2 = (this.cat2 + 1) % totalCategories;
-    this.cat3 = (this.cat3 + 1) % totalCategories;
-    this.cat4 = (this.cat4 + 1) % totalCategories;
-    this.cat5 = (this.cat5 + 1) % totalCategories;
+    this.currentIndex = (this.currentIndex + 1) % this.categories.length;
+    this.updateVisibleCategories();
   }
 
   previousCategory() {
-    const totalCategories = this.categories.length;
-    this.cat1 = (this.cat1 - 1 + totalCategories) % totalCategories;
-    this.cat2 = (this.cat2 - 1 + totalCategories) % totalCategories;
-    this.cat3 = (this.cat3 - 1 + totalCategories) % totalCategories;
-    this.cat4 = (this.cat4 - 1 + totalCategories) % totalCategories;
-    this.cat5 = (this.cat5 - 1 + totalCategories) % totalCategories;
+    this.currentIndex = (this.currentIndex - 1 + this.categories.length) % this.categories.length;
+    this.updateVisibleCategories();
+  }
+
+  getCategoryIcon(categoryCode: string): string {
+    const icons: { [key: string]: string } = {
+      'electronic': 'fi fi-br-computer',
+      'clothes': 'fi fi-br-tshirt',
+      'books': 'fi fi-br-book',
+      'home': 'fi fi-br-home',
+      'toys': 'fi fi-br-baby',
+      'sports': 'fi fi-br-basketball',
+      'kitchen': 'fi fi-br-utensils',
+      'drugs': 'fi fi-br-medicine',
+      'games': 'fi fi-br-gamepad'
+    };
+    
+    return icons[categoryCode] || 'fi fi-br-box';
+  }
+
+  isCategoryActive(categoryCode: string): boolean {
+    return this.currentCategory === categoryCode;
   }
 }

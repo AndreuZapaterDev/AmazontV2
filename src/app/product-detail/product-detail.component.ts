@@ -118,11 +118,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
 
   loadRelatedProducts() {
-    // Obtener todos los productos de la misma categoría excepto el actual
     const allProducts = this.productService.getProducts();
     this.relatedProducts = allProducts.filter(p => 
       p.category === this.product.category && p.id !== this.product.id
-    ).slice(0, 4); // Mostrar hasta 4 productos relacionados
+    ).slice(0, 4);
   }
 
   navigateToProduct(product: Product) {

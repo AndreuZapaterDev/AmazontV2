@@ -26,13 +26,14 @@ html {
   --border-color: #ccc;
   --price-color: red;
   --star-color: #f39c12;
-  --box-shadow-color: rgba(0, 0, 0, 0.2);
+  --box-shadow-color: rgba(0, 0, 0, 0.3);
   --gradient-color: #fa9c20;
   --text-muted: #999;
   --discount-color: #d50000;
   --product-background-color: #f3f3f3;
   --shipping-color: #0082df;
   --hover-color: #fa9b20;
+  --card-background-color:#f4f4f4;
 }
 
 [data-theme='dark'] {
@@ -53,4 +54,5 @@ html {
   --product-background-color: #313131;
   --shipping-color: #fa9c20;
   --hover-color: #2c3338;
+  --card-background-color:#313131;
 }

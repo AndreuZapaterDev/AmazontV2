@@ -1,61 +1,105 @@
-  <!-- Ofertes -->
-    <div class="banner">
-      <div class="banner-text">
-        <h2>¡Rebajas de Invierno!</h2>
-        <img class="img-sales" src="/images/50_2.png" alt="sales">
+<!-- Banner de ofertas -->
+<section class="promo-banner">
+  <div class="promo-background-elements">
+    <div class="promo-shape shape-1"></div>
+    <div class="promo-shape shape-2"></div>
+    <div class="promo-shape shape-3"></div>
+    <div class="promo-dots"></div>
+  </div>
+  
+  <div class="promo-content">
+    <div class="promo-text">
+      <span class="promo-tag">Oferta limitada</span>
+      <h2 class="promo-heading">Rebajas de <span class="text-gradient">Invierno</span></h2>
+      <p class="promo-subheading">Hasta un <span class="highlight">50%</span> de descuento en productos seleccionados</p>
+      <div class="promo-cta">
+        <a routerLink="/home/offers" class="promo-button">Ver ofertas</a>
+        <div class="promo-countdown">
+          <span>Termina en:</span>
+          <div class="countdown-timer">
+            <div class="timer-unit">
+              <span class="timer-number">3</span>
+              <span class="timer-label">días</span>
+            </div>
+            <div class="timer-unit">
+              <span class="timer-number">08</span>
+              <span class="timer-label">horas</span>
+            </div>
+            <div class="timer-unit">
+              <span class="timer-number">45</span>
+              <span class="timer-label">min</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <h3> Hasta un 50% de descuento en productos seleccionados</h3>   
     </div>
-
-<div class="contenedor-principal">
     
-  <div class="carousel">
-    <button (click)="previous_discount()">
-      <i class="fi fi-br-angle-double-small-left icon"></i>
-    </button>
-  
-    <div class="products">
+    <div class="promo-media">
+      <div class="discount-badge-container">
+        <img src="/images/50_2.png" alt="50% descuento" class="discount-badge">
+        <div class="discount-sparkle sparkle-1"></div>
+        <div class="discount-sparkle sparkle-2"></div>
+        <div class="discount-sparkle sparkle-3"></div>
+      </div>
+      <div class="promo-products">
+        <img src="/images/product-preview1.png" alt="Producto en oferta" class="promo-product product-1">
+        <img src="/images/product-preview2.png" alt="Producto en oferta" class="promo-product product-2">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <!-- Productos con descuento -->
+  <section class="product-section">
+    <header class="section-header">
+      <h2>Ofertas destacadas</h2>
+      <div class="carousel-controls">
+        <button class="carousel-arrow" (click)="previous_discount()" aria-label="Anterior">
+          <i class="fi fi-br-angle-left"></i>
+        </button>
+        <button class="carousel-arrow" (click)="next_discount()" aria-label="Siguiente">
+          <i class="fi fi-br-angle-right"></i>
+        </button>
+      </div>
+    </header>
+    
+    <div class="products-carousel">
       @for (product of visibleDiscount; track product.id) {
-      <app-products [product]="product"></app-products>
+        <app-products [product]="product"></app-products>
       }
     </div>
+  </section>
   
-    <button (click)="next_discount()">
-      <i class="fi fi-br-angle-double-small-right icon"></i>
-    </button>
-  </div>
-
-  <!-- Productes -->
-  <div class="separador">
-    <hr class="linea" />
-    <h3>Productos destacados</h3>
-    <hr class="linea" />
-  </div>
-
-  <div class="carousel">
-    <button (click)="previous()">
-      <i class="fi fi-br-angle-double-small-left icon"></i>
-    </button>
-
-    <div class="products">
+  <!-- Productos destacados -->
+  <section class="product-section">
+    <header class="section-header">
+      <h2>Productos destacados</h2>
+      <div class="carousel-controls">
+        <button class="carousel-arrow" (click)="previous()" aria-label="Anterior">
+          <i class="fi fi-br-angle-left"></i>
+        </button>
+        <button class="carousel-arrow" (click)="next()" aria-label="Siguiente">
+          <i class="fi fi-br-angle-right"></i>
+        </button>
+      </div>
+    </header>
+    
+    <div class="products-carousel">
       @for (product of visibleProducts; track product.id) {
-      <app-products [product]="product"></app-products>
+        <app-products [product]="product"></app-products>
       }
     </div>
+  </section>
 
-    <button (click)="next()">
-      <i class="fi fi-br-angle-double-small-right icon"></i>
-    </button>
-  </div>
-  <!-- Categories en tendencia -->
-  <div class="tendency">
-    <div class="separador">
-      <hr class="linea" />
-      <h3>Categorias en tendencia</h3>
-      <hr class="linea" />
-    </div>
-    <div class="row">
+  <!-- Categorías en tendencia -->
+  <section class="categories-section">
+    <header class="section-header">
+      <h2>Categorías en tendencia</h2>
+    </header>
+    
+    <div class="categories-container">
       <app-featured-categories></app-featured-categories>
     </div>
-  </div>
+  </section>
 </div>
