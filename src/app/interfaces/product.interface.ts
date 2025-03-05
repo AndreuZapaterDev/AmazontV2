@@ -1,4 +1,3 @@
-// src/app/interfaces/product.interface.ts
 export interface Review {
   id: number;
   author: string;

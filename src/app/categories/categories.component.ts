@@ -65,7 +65,7 @@ export class CategoriesComponent implements OnInit {
       games: 'fi fi-br-gamepad',
     };
 
-    return icons[categoryCode] || 'fi fi-br-box';
+    return icons[categoryCode];
   }
 
   isCategoryActive(categoryCode: string): boolean {
