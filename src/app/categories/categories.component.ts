@@ -52,23 +52,26 @@ export class CategoriesComponent implements OnInit {
     this.updateVisibleCategories();
   }
 
+  // Obtiene el icono correspondiente a cada categoría
   getCategoryIcon(categoryCode: string): string {
+    // Mapeo de códigos de categoría a clases de iconos
     const icons: { [key: string]: string } = {
-      electronic: 'fi fi-br-computer',
-      clothes: 'fi fi-br-tshirt',
-      books: 'fi fi-br-book',
-      home: 'fi fi-br-home',
-      toys: 'fi fi-br-baby',
-      sports: 'fi fi-br-basketball',
-      kitchen: 'fi fi-br-utensils',
-      drugs: 'fi fi-br-medicine',
-      games: 'fi fi-br-gamepad',
+      electronic: 'fi fi-br-computer',  
+      clothes: 'fi fi-br-tshirt',     
+      books: 'fi fi-br-book',  
+      home: 'fi fi-br-home',           
+      toys: 'fi fi-br-baby',             
+      sports: 'fi fi-br-basketball',     
+      kitchen: 'fi fi-br-utensils',      
+      drugs: 'fi fi-br-medicine',        
+      games: 'fi fi-br-gamepad',         
     };
 
-    return icons[categoryCode];
+    return icons[categoryCode]; // Devuelve la clase del icono para la categoría solicitada
   }
 
+  // Verifica si una categoría está actualmente seleccionada/activa
   isCategoryActive(categoryCode: string): boolean {
-    return this.currentCategory === categoryCode;
+    return this.currentCategory === categoryCode; // Compara con la categoría actualmente seleccionada
   }
 }
