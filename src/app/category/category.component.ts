@@ -149,7 +149,7 @@ export class CategoryComponent {
     this.applyFilters();
   }
 
-    // Nuevo método para limpiar la búsqueda
+    //método para limpiar la búsqueda
     clearSearch() {
       this.searchTerm = '';
       this.applyFilters();
@@ -161,7 +161,7 @@ export class CategoryComponent {
       this.sortOption = 'default';
       this.getCategoryProducts();
       
-      // También resetea el select visualmente
+      // También resetea el select visualmente, es decir del html
       const selectElement = document.getElementById('filters') as HTMLSelectElement;
       if (selectElement) {
         selectElement.value = 'default';

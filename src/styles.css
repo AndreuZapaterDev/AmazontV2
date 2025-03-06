@@ -34,6 +34,7 @@ html {
   --shipping-color: #0082df;
   --hover-color: #fa9b20;
   --card-background-color:#f4f4f4;
+  --secondary-color-rgb: #FA9C20;
 }
 
 [data-theme='dark'] {
@@ -55,4 +56,5 @@ html {
   --shipping-color: #fa9c20;
   --hover-color: #2c3338;
   --card-background-color:#313131;
+  --secondary-color-rgb: #FA9C20;
 }

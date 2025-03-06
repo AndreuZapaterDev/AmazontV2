@@ -48,8 +48,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     private router: Router
   ) {}
 
+  // Inicializa el componente y se suscribe a cambios en la URL
+  // para cargar el producto correspondiente cuando cambia el parámetro id de la URL
   ngOnInit() {
-    // Suscribirse a los cambios de parámetros en lugar de obtener el valor una sola vez
     this.routeSub = this.route.paramMap.subscribe(params => {
       const idParam = params.get('id');
       if (idParam) {
@@ -59,54 +60,54 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     });
   }
 
+  // Limpia las suscripciones al destruir el componente para limpiar memoria
   ngOnDestroy() {
-    // Limpiar suscripciones al destruir el componente
     if (this.routeSub) {
       this.routeSub.unsubscribe();
     }
   }
 
+  // Carga todos los detalles del producto y configura el estado inicial de la vista
   loadProductDetails() {
     const product = this.productService.getProduct(this.productId);
     if (product) {
       this.product = product;
-
+      
+      // Configura las reseñas y muestra solo las iniciales
       this.reviews = this.product.reviews || [];
       this.visibleReviews = this.reviews.slice(0, this.maxInitialReviews);
 
+      // Configura las imágenes del producto
       this.mainImage = this.product.url;
       this.productImages = [
         this.product.url,
-        '/images/product-angle-1.jpg',
-        '/images/product-angle-2.jpg'
+        '/images/test1.jpg',
+        '/images/test2.jpg'
       ];
 
+      // Inicializa variables y carga datos adicionales
       this.activeImageIndex = 0;
       this.generateStars();
       this.calculateDiscountedPrice();
       this.loadRelatedProducts();
       
-      // Resetear el estado de la vista
+      // Reinicia el estado de la interfaz
       this.quantity = 1;
       this.activeTab = 'description';
       this.showingAllReviews = false;
-
       window.scrollTo(0, 0);
     }
   }
 
+  // Cambia la imagen principal con efecto de transición
   changeMainImage(imageUrl: string, index: number) {
-    // Añadir clase para fade out
     const imgElement = document.querySelector('.main-image img');
     if (imgElement) {
+      // Aplica animación de transición entre imágenes
       imgElement.classList.add('image-fade');
-      
-      // Cambiar la imagen después de un breve retraso
       setTimeout(() => {
         this.mainImage = imageUrl;
         this.activeImageIndex = index;
-        
-        // Quitar la clase para fade in
         setTimeout(() => {
           imgElement.classList.remove('image-fade');
         }, 50);
@@ -117,6 +118,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  // Carga productos de la misma categoría para mostrar como recomendaciones
   loadRelatedProducts() {
     const allProducts = this.productService.getProducts();
     this.relatedProducts = allProducts.filter(p => 
@@ -124,14 +126,17 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     ).slice(0, 4);
   }
 
+  // Navega a otro producto cuando se hace clic en las recomendaciones
   navigateToProduct(product: Product) {
     this.router.navigate(['/home/product', product.id]);
   }
 
+  // Genera la valoración con estrellas
   generateStars() {
     this.numberStars = '⭐'.repeat(this.product.stars);
   }
 
+  // Calcula el precio final después de aplicar el descuento
   calculateDiscountedPrice() {
     if (this.product.discount) {
       this.discountedPrice = this.product.price - (this.product.price * this.product.discount / 100);
@@ -140,32 +145,36 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  // Aumenta la cantidad a comprar
   increaseQuantity() {
-    if (this.quantity < 10) {
+    if (this.quantity < 1000) {
       this.quantity++;
     }
   }
 
+  // Disminuye la cantidad a comprar
   decreaseQuantity() {
     if (this.quantity > 1) {
       this.quantity--;
     }
   }
 
+  // Cambia entre las pestañas de información del producto
   setActiveTab(tabName: string) {
     this.activeTab = tabName;
   }
-  
+
+  // Convierte valoración numérica en estrellas
   getStarsForRating(rating: number): string {
     return '⭐'.repeat(rating);
   }
-  
-  // Calcular estadísticas de reseñas para mostrar en el panel de opiniones
+
+  // Calcula estadísticas generales de las reseñas
   get reviewStats() {
     const stats = {
       total: this.reviews.length,
       average: 0,
-      distribution: [0, 0, 0, 0, 0] // Conteo para 1-5 estrellas
+      distribution: [0, 0, 0, 0, 0] // Conteo para cada nivel de estrellas
     };
     
     if (stats.total > 0) {
@@ -180,11 +189,13 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     return stats;
   }
 
+  // Carga las reseñas del producto
   loadReviews() {
     this.reviews = this.product.reviews || [];
     this.visibleReviews = this.reviews.slice(0, this.maxInitialReviews);
   }
 
+  // Alterna entre mostrar todas las reseñas o solo las iniciales
   showMoreReviews() {
     if (!this.showingAllReviews) {
       this.visibleReviews = this.reviews;
