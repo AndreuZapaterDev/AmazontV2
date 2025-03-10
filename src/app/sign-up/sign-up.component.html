@@ -1,29 +1,248 @@
-<div class="wrapper">
-  <div class="card-switch">
-      <label class="switch">
-         <input type="checkbox" class="toggle">
-         <span class="slider"></span>
-         <span class="card-side"></span>
-         <div class="flip-card_inner">
-            <div class="flip-card_front">
-               <div class="title">Inicio de sesión</div>
-               <form class="flip-card_form" action="">
-                  <input class="flip-card_input" name="email" placeholder="Email" type="email">
-                  <input class="flip-card_input" name="password" placeholder="Contraseña" type="password">
-                  <button class="flip-card_btn">Entrar</button>
-               </form>
-            </div>
-            <div class="flip-card_back">
-               <div class="title">Registro</div>
-               <form class="flip-card_form" action="">
-                  <input class="flip-card_input" placeholder="Usuario" type="name">
-                  <input class="flip-card_input" name="email" placeholder="Email" type="email">
-                  <input class="flip-card_input" name="password" placeholder="Contraseña" type="password">
-                  <button class="flip-card_btn">Confirmar</button>
-               </form>
-            </div>
-            
+<div class="signup-container">
+   <div class="signup-card">
+      <div class="card-dark-mode">
+         <app-dark-mode></app-dark-mode>
+       </div>
+     <div class="signup-header">
+      <div class="logo-container">
+         @if (isDarkTheme()) {
+           <img src="/images/White_logo.png" alt="Amazont Logo" class="signup-logo">
+         } @else {
+           <img src="/images/Black_logo.png" alt="Amazont Logo" class="signup-logo">
+         }
+       </div>
+       <h1>Crear cuenta</h1>
+       <p class="subtitle">Únete a nuestra comunidad de compradores</p>
+     </div>
+ 
+     <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+       <!-- Información personal -->
+       <div class="form-section">
+         <h2>Información personal</h2>
+         
+         <div class="form-row">
+           <div class="form-group">
+             <label for="firstName">Nombre</label>
+             <div class="input-container">
+               <i class="fi fi-br-user"></i>
+               <input 
+                 type="text" 
+                 id="firstName" 
+                 formControlName="firstName" 
+                 placeholder="Tu nombre">
+               @if (f['firstName'].touched) {
+                 <div class="input-status" [class.valid]="!f['firstName'].errors">
+                   <i class="fi fi-br-check"></i>
+                 </div>
+               }
+             </div>
+             @if (submitted && f['firstName'].errors) {
+               <div class="error-message">
+                 @if (f['firstName'].errors['required']) {
+                   <span>El nombre es obligatorio</span>
+                 }
+               </div>
+             }
+           </div>
+           
+           <div class="form-group">
+             <label for="lastName">Apellidos</label>
+             <div class="input-container">
+               <i class="fi fi-br-user"></i>
+               <input 
+                 type="text" 
+                 id="lastName" 
+                 formControlName="lastName" 
+                 placeholder="Tus apellidos">
+               @if (f['lastName'].touched) {
+                 <div class="input-status" [class.valid]="!f['lastName'].errors">
+                   <i class="fi fi-br-check"></i>
+                 </div>
+               }
+             </div>
+             @if (submitted && f['lastName'].errors) {
+               <div class="error-message">
+                 @if (f['lastName'].errors['required']) {
+                   <span>Los apellidos son obligatorios</span>
+                 }
+               </div>
+             }
+           </div>
          </div>
-      </label>
-  </div>   
-</div>
+ 
+         <div class="form-row">
+           <div class="form-group">
+             <label for="email">Correo electrónico</label>
+             <div class="input-container">
+               <i class="fi fi-br-envelope"></i>
+               <input 
+                 type="email" 
+                 id="email" 
+                 formControlName="email" 
+                 placeholder="ejemplo@correo.com">
+               @if (f['email'].touched) {
+                 <div class="input-status" [class.valid]="!f['email'].errors">
+                   <i class="fi fi-br-check"></i>
+                 </div>
+               }
+             </div>
+             @if (submitted && f['email'].errors) {
+               <div class="error-message">
+                 @if (f['email'].errors['required']) {
+                   <span>El correo es obligatorio</span>
+                 }
+                 @if (f['email'].errors['email']) {
+                   <span>Introduzca un correo válido</span>
+                 }
+               </div>
+             }
+           </div>
+ 
+           <div class="form-group">
+            <label for="phone">Teléfono</label>
+            <div class="input-container">
+              <i class="fi fi-br-phone-call"></i>
+              <input 
+                type="tel" 
+                id="phone" 
+                formControlName="phone" 
+                placeholder="Ej: 612345678">
+              @if (f['phone'].touched) {
+                <div class="input-status" [class.valid]="!f['phone'].errors">
+                  <i class="fi fi-br-check"></i>
+                </div>
+              }
+            </div>
+            @if (submitted && f['phone'].errors) {
+              <div class="error-message">
+                @if (f['phone'].errors['required']) {
+                  <span>El teléfono es obligatorio</span>
+                }
+                @if (f['phone'].errors['pattern']) {
+                  <span>Formato de teléfono inválido</span>
+                }
+              </div>
+            }
+          </div>
+         </div>
+ 
+         <div class="form-group">
+           <label for="gender">Género</label>
+           <div class="select-wrapper">
+             <select id="gender" formControlName="gender">
+               <option value="" disabled selected>Selecciona una opción</option>
+               <option value="male">Hombre</option>
+               <option value="female">Mujer</option>
+               <option value="other">Prefiero no decirlo</option>
+             </select>
+             <i class="fi fi-br-angle-down"></i>
+           </div>
+           @if (submitted && f['gender'].errors) {
+             <div class="error-message">
+               @if (f['gender'].errors['required']) {
+                 <span>Por favor, selecciona una opción</span>
+               }
+             </div>
+           }
+         </div>
+         
+         <div class="form-row">
+           <div class="form-group">
+             <label for="password">Contraseña</label>
+             <div class="input-container">
+               <i class="fi fi-br-lock"></i>
+               <input 
+                 [type]="showPassword ? 'text' : 'password'" 
+                 id="password" 
+                 formControlName="password" 
+                 placeholder="Tu contraseña">
+               <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+                 <i [class]="showPassword ? 'fi fi-br-eye' : 'fi fi-br-eye-crossed'"></i>
+               </button>
+             </div>
+             @if (f['password'].value) {
+               <div class="password-strength">
+                 <div class="strength-bar" [ngClass]="getPasswordStrengthClass()"></div>
+                 <span>{{ getPasswordStrengthText() }}</span>
+               </div>
+             }
+             @if (submitted && f['password'].errors) {
+               <div class="error-message">
+                 @if (f['password'].errors['required']) {
+                   <span>La contraseña es obligatoria</span>
+                 }
+                 @if (f['password'].errors['minlength']) {
+                   <span>La contraseña debe tener al menos 6 caracteres</span>
+                 }
+               </div>
+             }
+           </div>
+           
+           <div class="form-group">
+             <label for="confirmPassword">Confirmar contraseña</label>
+             <div class="input-container">
+               <i class="fi fi-br-lock"></i>
+               <input 
+                 [type]="showConfirmPassword ? 'text' : 'password'" 
+                 id="confirmPassword" 
+                 formControlName="confirmPassword" 
+                 placeholder="Confirma tu contraseña">
+               <button type="button" class="toggle-password" (click)="toggleConfirmPasswordVisibility()">
+                 <i [class]="showConfirmPassword ? 'fi fi-br-eye' : 'fi fi-br-eye-crossed'"></i>
+               </button>
+             </div>
+             @if (submitted && f['confirmPassword'].errors) {
+               <div class="error-message">
+                 @if (f['confirmPassword'].errors['required']) {
+                   <span>Debe confirmar la contraseña</span>
+                 }
+                 @if (f['confirmPassword'].errors['matching']) {
+                   <span>Las contraseñas no coinciden</span>
+                 }
+               </div>
+             }
+           </div>
+         </div>
+       </div>
+       
+       <!-- Preferencias -->
+       <div class="form-section">
+         <h2>Términos y preferencias</h2>
+         
+         <div class="form-group checkbox-group">
+           <label class="checkbox-container">
+             <span class="checkbox-label">Quiero recibir ofertas exclusivas, novedades y descuentos personalizados</span>
+             <input type="checkbox" formControlName="newsletter">
+             <span class="checkmark"></span>
+           </label>
+         </div>
+         
+         <div class="form-group checkbox-group">
+           <label class="checkbox-container">
+             <span class="checkbox-label">He leído y acepto los <a routerLink="/terms" class="text-link">términos y condiciones</a> y la <a routerLink="/privacy" class="text-link">política de privacidad</a></span>
+             <input type="checkbox" formControlName="terms">
+             <span class="checkmark"></span>
+           </label>
+           @if (submitted && f['terms'].errors) {
+             <div class="error-message">
+               @if (f['terms'].errors['required']) {
+                 <span>Debes aceptar los términos y condiciones</span>
+               }
+             </div>
+           }
+         </div>
+       </div>
+ 
+       <div class="form-actions">
+         <button type="submit" class="signup-button">
+           <span>Crear mi cuenta</span>
+           <i class="fi fi-br-angle-right"></i>
+         </button>
+       </div>
+       
+       <div class="login-link">
+         ¿Ya tienes una cuenta? <a routerLink="/login" class="text-link">Iniciar sesión</a>
+       </div>
+     </form>
+   </div>
+ </div>

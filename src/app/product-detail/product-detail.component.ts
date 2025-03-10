@@ -118,12 +118,12 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  // Carga productos de la misma categoría para mostrar como recomendaciones
+  // Carga productos de la misma categoría para mostrar como recomendaciones (Maximo 4 productos muestra)
   loadRelatedProducts() {
     const allProducts = this.productService.getProducts();
     this.relatedProducts = allProducts.filter(p => 
       p.category === this.product.category && p.id !== this.product.id
-    ).slice(0, 4);
+    ).slice(0, 4); // maximo 4 productos
   }
 
   // Navega a otro producto cuando se hace clic en las recomendaciones

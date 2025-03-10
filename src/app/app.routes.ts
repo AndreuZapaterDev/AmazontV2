@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { GeneralComponent } from './general/general.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginComponent } from './login/login.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 export const routes: Routes = [
@@ -15,6 +16,7 @@ export const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     children: [
+      
       {
         path: '',
         component: GeneralComponent,
@@ -38,4 +40,5 @@ export const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'sign-up', component: SignUpComponent },
+  { path: 'login', component: LoginComponent },
 ];
