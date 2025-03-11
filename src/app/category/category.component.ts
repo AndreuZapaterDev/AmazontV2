@@ -167,4 +167,26 @@ export class CategoryComponent {
         selectElement.value = 'default';
       }
     }
+
+    // Obtiene el icono correspondiente a cada categoría
+    getCategoryIcon(categoryCode: string | null): string {
+      // Mapeo de códigos de categoría a clases de iconos
+      const icons: { [key: string]: string } = {
+        'electronic': 'fi fi-br-computer',  
+        'clothes': 'fi fi-br-tshirt',     
+        'books': 'fi fi-br-book',  
+        'home': 'fi fi-br-home',           
+        'toys': 'fi fi-br-baby',             
+        'sports': 'fi fi-br-basketball',     
+        'kitchen': 'fi fi-br-utensils',      
+        'drugs': 'fi fi-br-medicine',        
+        'games': 'fi fi-br-gamepad'         
+      };
+      
+      if (categoryCode && icons[categoryCode]) {
+        return icons[categoryCode];
+      }
+      
+      return 'fi fi-br-box'; // Icono predeterminado
+    }
 }
