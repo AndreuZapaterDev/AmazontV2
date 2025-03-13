@@ -1,13 +1,11 @@
 <div class="categories-container">
   <div class="categories-nav">
     <div class="categories-wrapper">
-      <!-- Botón de navegación izquierdo con efecto mejorado -->
       <button class="nav-arrow prev-arrow" (click)="previousCategory()" aria-label="Categorías anteriores">
         <i class="fi fi-br-angle-left"></i>
         <span class="arrow-ripple"></span>
       </button>
 
-      <!-- Slider de categorías con efectos visuales mejorados -->
       <div class="categories-slider">
         @for(category of visibleCategories; track category.id) {
           <a class="category-link" 
@@ -26,7 +24,6 @@
         }
       </div>
 
-      <!-- Botón de navegación derecho con efecto mejorado -->
       <button class="nav-arrow next-arrow" (click)="nextCategory()" aria-label="Categorías siguientes">
         <i class="fi fi-br-angle-right"></i>
         <span class="arrow-ripple"></span>
@@ -34,7 +31,6 @@
     </div>
   </div>
 
-  <!-- Contenido dinámico de la categoría seleccionada -->
   <div class="category-content">
     <router-outlet></router-outlet>
   </div>

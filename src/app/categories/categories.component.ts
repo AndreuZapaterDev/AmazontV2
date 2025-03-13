@@ -72,6 +72,6 @@ export class CategoriesComponent implements OnInit {
 
   // Verifica si una categoría está actualmente seleccionada/activa
   isCategoryActive(categoryCode: string): boolean {
-    return this.currentCategory === categoryCode; // Compara con la categoría actualmente seleccionada
+    return this.currentCategory === categoryCode;
   }
 }

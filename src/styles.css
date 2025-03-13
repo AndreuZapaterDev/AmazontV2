@@ -35,8 +35,8 @@ html {
   --hover-color: #fa9b20;
   --card-background-color:#f4f4f4;
   --secondary-color-rgb: #FA9C20;
-  --promo-color1: rgb(255, 136, 0);
-  --promo-color2: rgb(193, 247, 0);
+  --promo-color1: #ff8800;
+  --promo-color2: #c1f700;
 }
 
 [data-theme='dark'] {
@@ -59,6 +59,6 @@ html {
   --hover-color: #2c3338;
   --card-background-color:#313131;
   --secondary-color-rgb: #FA9C20;
-  --promo-color1: rgb(255, 136, 0);
-  --promo-color2: black;
+  --promo-color1: #ff8800;
+  --promo-color2: #000000;
 }
