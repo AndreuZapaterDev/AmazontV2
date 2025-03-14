@@ -10,6 +10,9 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+i{
+  padding-top: 5px;
+}
 
 html {
   background-color: var(--background-color);
