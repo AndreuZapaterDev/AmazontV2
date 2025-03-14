@@ -29,12 +29,14 @@
     </div>
 
     <div class="cart-container">
-      <button>
-        <i class="fi fi-br-shopping-cart"></i>
-        <div class="number-container">
-          <h3>0</h3>
-        </div>
-      </button>
+      <a [routerLink]="['/home/cart']" class="cart-link">
+        <button>
+          <i class="fi fi-br-shopping-cart"></i>
+          <div class="number-container">
+            <h3>0</h3>
+          </div>
+        </button>
+      </a>
     </div>
 
     <div>

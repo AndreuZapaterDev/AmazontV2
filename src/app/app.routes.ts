@@ -9,6 +9,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -33,6 +34,7 @@ export const routes: Routes = [
         ],
       },
       { path: 'product/:id', component: ProductDetailComponent },
+      { path: 'cart', component: ShoppingCartComponent },
     ],
   },
   { path: 'offers', component: OffersComponent },
@@ -41,4 +43,5 @@ export const routes: Routes = [
   { path: 'navbar', component: NavbarComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'cart', redirectTo: 'home/cart', pathMatch: 'full' },
 ];

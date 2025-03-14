@@ -10,6 +10,9 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+i{
+  padding-top: 5px;
+}
 
 html {
   background-color: var(--background-color);
@@ -61,4 +64,49 @@ html {
   --secondary-color-rgb: #FA9C20;
   --promo-color1: #ff8800;
   --promo-color2: #000000;
+}
+
+
+/*   ----------------------------------------------  SCROLL BAR ----------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--card-background-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--secondary-color), var(--gradient-color));
+  border-radius: 10px;
+  border: 3px solid var(--card-background-color);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--background-navbar), var(--background-navbar2));
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-color) var(--card-background-color);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--background-navbar);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--card-background-color);
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-track {
+  background-color: #2a2a2a;
+  border-radius: 10px;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  border: 3px solid #2a2a2a;
 }
