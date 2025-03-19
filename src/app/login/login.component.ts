@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DarkModeComponent } from '../dark-mode/dark-mode.component';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterLink, DarkModeComponent],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
@@ -18,20 +24,36 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
-  ) { }
+    private router: Router,
+    private loginService: LoginService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      rememberMe: [false]
+      rememberMe: [false],
     });
   }
 
+  logIn() {
+    this.loginService
+      .login(this.loginForm.value.email, this.loginForm.value.password)
+      .subscribe({
+        next: (response: any) => {
+          this.loginService.setLoggedUser(response.usuario);
+          this.router.navigate(['/home']);
+        },
+        error: (error: any) => {
+          // Manejar errores de inicio de sesión
+          // console.error(error);
+        },
+      });
+  }
+
   // Getter para acceder fácilmente a los campos del formulario
-  get f() { 
-    return this.loginForm.controls; 
+  get f() {
+    return this.loginForm.controls;
   }
 
   togglePasswordVisibility() {
@@ -51,12 +73,12 @@ export class LoginComponent implements OnInit {
     }
 
     // Aquí iría la lógica para autenticar al usuario
-    console.log('Credenciales enviadas:', this.loginForm.value);
-    
+    // console.log('Credenciales enviadas:', this.loginForm.value);
+    this.logIn();
     // Simulación de inicio de sesión
-    setTimeout(() => {
-      // Redireccionar a la página principal tras un inicio de sesión exitoso
-      this.router.navigate(['/home']);
-    }, 1000);
+    // setTimeout(() => {
+    //   // Redireccionar a la página principal tras un inicio de sesión exitoso
+    //   this.router.navigate(['/home']);
+    // }, 1000);
   }
 }
