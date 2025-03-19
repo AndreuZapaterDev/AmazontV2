@@ -38,7 +38,7 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-  // Validador personalizado para comprobar que las contraseñas coincidan
+  // Validador para comprobar que las contraseñas coincidan
   passwordMatchValidator(formGroup: FormGroup) {
     const password = formGroup.get('password')?.value;
     const confirmPassword = formGroup.get('confirmPassword')?.value;

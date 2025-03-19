@@ -59,14 +59,4 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/home']);
     }, 1000);
   }
-
-  loginWithGoogle() {
-    // Implementar la autenticación con Google
-    console.log('Iniciando sesión con Google...');
-  }
-
-  loginWithFacebook() {
-    // Implementar la autenticación con Facebook
-    console.log('Iniciando sesión con Facebook...');
-  }
 }
