@@ -11,6 +11,14 @@ export class LoginService {
 
   loggedUser: any;
 
+  postPerfilUsuario(perfilUsuario: any): Observable<any> {
+    return this.http.post(`${this.apiPath}/api/perfil_usuario`, perfilUsuario);
+  }
+
+  postUsuario(usuario: any): Observable<any> {
+    return this.http.post(`${this.apiPath}/api/usuario`, usuario);
+  }
+
   getUsuarios(): Observable<any> {
     return this.http.get(`${this.apiPath}/api/usuarios`);
   }
