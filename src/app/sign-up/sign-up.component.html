@@ -50,7 +50,7 @@
                   class="input-status"
                   [class.valid]="!f['firstName'].errors"
                 >
-                  <i class="fi fi-br-check"></i>
+                <i class="fi fi-br-check ml-1"></i>
                 </div>
                 }
               </div>
@@ -75,7 +75,7 @@
                 />
                 @if (f['lastName'].touched) {
                 <div class="input-status" [class.valid]="!f['lastName'].errors">
-                  <i class="fi fi-br-check"></i>
+                  <i class="fi fi-br-check ml-1"></i>
                 </div>
                 }
               </div>
@@ -83,6 +83,57 @@
               <div class="error-message">
                 @if (f['lastName'].errors['required']) {
                 <span>Los apellidos son obligatorios</span>
+                }
+              </div>
+              }
+            </div>
+          </div>
+
+          <!-- Fecha de nacimiento y dirección -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="address">Dirección</label>
+              <div class="input-container">
+                <i class="fi fi-br-map-marker"></i>
+                <input
+                  type="text"
+                  id="address"
+                  formControlName="address"
+                  placeholder="Tu dirección completa"
+                />
+                @if (f['address'].touched) {
+                <div class="input-status" [class.valid]="!f['address'].errors">
+                  <i class="fi fi-br-check ml-1"></i>
+                </div>
+                }
+              </div>
+              @if (submitted && f['address'].errors && f['address'].errors['required']) {
+              <div class="error-message">
+                <span>La dirección es obligatoria</span>
+              </div>
+              }
+            </div>
+
+            <div class="form-group">
+              <label for="address">Dirección</label>
+              <div class="input-container">
+                <i class="fi fi-br-map-marker"></i>
+                <input
+                  type="text"
+                  id="address"
+                  formControlName="address"
+                  placeholder="Tu dirección completa"
+                />
+                @if (f['address'].touched) {
+                <div class="input-status" [class.valid]="!f['address'].errors">
+                  <i class="fi fi-br-check ml-1"></i>
+                </div>
+                }
+              </div>
+              @if (submitted && f['address'].errors) {
+              <div class="error-message">
+                @if (f['address'].errors['required']) {
+                <span>La dirección es obligatoria</span>
                 }
               </div>
               }
@@ -102,7 +153,7 @@
                 />
                 @if (f['email'].touched) {
                 <div class="input-status" [class.valid]="!f['email'].errors">
-                  <i class="fi fi-br-check"></i>
+                  <i class="fi fi-br-check ml-1"></i>
                 </div>
                 }
               </div>
@@ -129,7 +180,7 @@
                 />
                 @if (f['phone'].touched) {
                 <div class="input-status" [class.valid]="!f['phone'].errors">
-                  <i class="fi fi-br-check"></i>
+                  <i class="fi fi-br-check ml-1"></i>
                 </div>
                 }
               </div>
@@ -303,24 +354,23 @@
 </div>
 
 <!-- VERSIÓN MOBILE -->
-<div
-  class="block md:hidden min-h-screen bg-[var(--background-color)] py-8 px-4"
->
+<div class="block md:hidden min-h-screen bg-[var(--background-color)] py-8 px-4">
   <!-- Encabezado -->
   <div class="text-center mb-8">
     <div class="flex justify-center mb-4">
-      <img
-        *ngIf="!isDarkTheme()"
-        src="/images/Black_logo.png"
-        alt="Amazont Logo"
-        class="w-20 h-auto"
-      />
-      <img
-        *ngIf="isDarkTheme()"
-        src="/images/White_logo.png"
-        alt="Amazont Logo"
-        class="w-20 h-auto"
-      />
+      @if (!isDarkTheme()) {
+        <img
+          src="/images/Black_logo.png"
+          alt="Amazont Logo"
+          class="w-20 h-auto"
+        />
+      } @else {
+        <img
+          src="/images/White_logo.png"
+          alt="Amazont Logo"
+          class="w-20 h-auto"
+        />
+      }
     </div>
     <h1 class="text-[var(--text-color)] text-2xl font-bold">Crear cuenta</h1>
     <p class="text-[var(--text-muted)] text-sm mt-2">
@@ -338,26 +388,16 @@
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="space-y-6">
       <!-- Información personal -->
       <div class="border-b border-[var(--border-color)] pb-6">
-        <h2
-          class="text-lg font-semibold text-[var(--text-color)] mb-4 relative"
-        >
+        <h2 class="text-lg font-semibold text-[var(--text-color)] mb-4 relative">
           Información personal
-          <span
-            class="absolute bottom-[-5px] left-0 w-10 h-1 bg-[var(--secondary-color)] rounded-full"
-          ></span>
+          <span class="absolute bottom-[-5px] left-0 w-10 h-1 bg-[var(--secondary-color)] rounded-full"></span>
         </h2>
 
         <!-- Nombre -->
         <div class="mb-4">
-          <label
-            for="firstName-mobile"
-            class="block text-sm font-medium text-[var(--text-color)] mb-1"
-            >Nombre</label
-          >
+          <label for="firstName-mobile" class="block text-sm font-medium text-[var(--text-color)] mb-1">Nombre</label>
           <div class="relative">
-            <span
-              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-            >
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <i class="fi fi-br-user text-[var(--text-muted)]"></i>
             </span>
             <input
@@ -368,25 +408,18 @@
               class="w-full py-2.5 pl-10 pr-3 bg-[var(--card-background-color)] border border-[var(--border-color)] text-[var(--text-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)] focus:border-[var(--secondary-color)]"
             />
           </div>
-          <p
-            *ngIf="submitted && f['firstName'].errors?.['required']"
-            class="mt-1 text-xs text-[var(--discount-color)]"
-          >
-            El nombre es obligatorio
-          </p>
+          @if (submitted && f['firstName'].errors?.['required']) {
+            <p class="mt-1 text-xs text-[var(--discount-color)]">
+              El nombre es obligatorio
+            </p>
+          }
         </div>
 
         <!-- Apellidos -->
         <div class="mb-4">
-          <label
-            for="lastName-mobile"
-            class="block text-sm font-medium text-[var(--text-color)] mb-1"
-            >Apellidos</label
-          >
+          <label for="lastName-mobile" class="block text-sm font-medium text-[var(--text-color)] mb-1">Apellidos</label>
           <div class="relative">
-            <span
-              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-            >
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <i class="fi fi-br-user text-[var(--text-muted)]"></i>
             </span>
             <input
@@ -397,25 +430,61 @@
               class="w-full py-2.5 pl-10 pr-3 bg-[var(--card-background-color)] border border-[var(--border-color)] text-[var(--text-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)] focus:border-[var(--secondary-color)]"
             />
           </div>
-          <p
-            *ngIf="submitted && f['lastName'].errors?.['required']"
-            class="mt-1 text-xs text-[var(--discount-color)]"
-          >
-            Los apellidos son obligatorios
-          </p>
+          @if (submitted && f['lastName'].errors?.['required']) {
+            <p class="mt-1 text-xs text-[var(--discount-color)]">
+              Los apellidos son obligatorios
+            </p>
+          }
+        </div>
+
+        <!-- Fecha de nacimiento -->
+        <div class="mb-4">
+          <label for="birthdate-mobile" class="block text-sm font-medium text-[var(--text-color)] mb-1">Fecha de nacimiento</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i class="fi fi-br-calendar text-[var(--text-muted)]"></i>
+            </span>
+            <input
+              type="date"
+              id="birthdate-mobile"
+              formControlName="birthdate"
+              class="w-full py-2.5 pl-10 pr-3 bg-[var(--card-background-color)] border border-[var(--border-color)] text-[var(--text-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)] focus:border-[var(--secondary-color)]"
+            />
+          </div>
+          @if (submitted && f['birthdate'].errors && f['birthdate'].errors['required']) {
+            <p class="mt-1 text-xs text-[var(--discount-color)]">
+              La fecha de nacimiento es obligatoria
+            </p>
+          }
+        </div>
+
+        <!-- Dirección -->
+        <div class="mb-4">
+          <label for="address-mobile" class="block text-sm font-medium text-[var(--text-color)] mb-1">Dirección</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i class="fi fi-br-map-marker text-[var(--text-muted)]"></i>
+            </span>
+            <input
+              type="text"
+              id="address-mobile"
+              formControlName="address"
+              placeholder="Tu dirección completa"
+              class="w-full py-2.5 pl-10 pr-3 bg-[var(--card-background-color)] border border-[var(--border-color)] text-[var(--text-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)] focus:border-[var(--secondary-color)]"
+            />
+          </div>
+          @if (submitted && f['address'].errors && f['address'].errors['required']) {
+            <p class="mt-1 text-xs text-[var(--discount-color)]">
+              La dirección es obligatoria
+            </p>
+          }
         </div>
 
         <!-- Email -->
         <div class="mb-4">
-          <label
-            for="email-mobile"
-            class="block text-sm font-medium text-[var(--text-color)] mb-1"
-            >Correo electrónico</label
-          >
+          <label for="email-mobile" class="block text-sm font-medium text-[var(--text-color)] mb-1">Correo electrónico</label>
           <div class="relative">
-            <span
-              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-            >
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <i class="fi fi-br-envelope text-[var(--text-muted)]"></i>
             </span>
             <input
@@ -426,30 +495,23 @@
               class="w-full py-2.5 pl-10 pr-3 bg-[var(--card-background-color)] border border-[var(--border-color)] text-[var(--text-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)] focus:border-[var(--secondary-color)]"
             />
           </div>
-          <div
-            *ngIf="submitted && f['email'].errors"
-            class="mt-1 text-xs text-[var(--discount-color)]"
-          >
-            <p *ngIf="f['email'].errors['required']">
-              El correo es obligatorio
-            </p>
-            <p *ngIf="f['email'].errors['email']">
-              Introduzca un correo válido
-            </p>
-          </div>
+          @if (submitted && f['email'].errors) {
+            <div class="mt-1 text-xs text-[var(--discount-color)]">
+              @if (f['email'].errors['required']) {
+                <p>El correo es obligatorio</p>
+              }
+              @if (f['email'].errors['email']) {
+                <p>Introduzca un correo válido</p>
+              }
+            </div>
+          }
         </div>
 
         <!-- Teléfono -->
         <div class="mb-4">
-          <label
-            for="phone-mobile"
-            class="block text-sm font-medium text-[var(--text-color)] mb-1"
-            >Teléfono</label
-          >
+          <label for="phone-mobile" class="block text-sm font-medium text-[var(--text-color)] mb-1">Teléfono</label>
           <div class="relative">
-            <span
-              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-            >
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <i class="fi fi-br-phone-call text-[var(--text-muted)]"></i>
             </span>
             <input
@@ -460,26 +522,21 @@
               class="w-full py-2.5 pl-10 pr-3 bg-[var(--card-background-color)] border border-[var(--border-color)] text-[var(--text-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)] focus:border-[var(--secondary-color)]"
             />
           </div>
-          <div
-            *ngIf="submitted && f['phone'].errors"
-            class="mt-1 text-xs text-[var(--discount-color)]"
-          >
-            <p *ngIf="f['phone'].errors['required']">
-              El teléfono es obligatorio
-            </p>
-            <p *ngIf="f['phone'].errors['pattern']">
-              Formato de teléfono inválido
-            </p>
-          </div>
+          @if (submitted && f['phone'].errors) {
+            <div class="mt-1 text-xs text-[var(--discount-color)]">
+              @if (f['phone'].errors['required']) {
+                <p>El teléfono es obligatorio</p>
+              }
+              @if (f['phone'].errors['pattern']) {
+                <p>Formato de teléfono inválido</p>
+              }
+            </div>
+          }
         </div>
 
         <!-- Género -->
         <div class="mb-4">
-          <label
-            for="gender-mobile"
-            class="block text-sm font-medium text-[var(--text-color)] mb-1"
-            >Género</label
-          >
+          <label for="gender-mobile" class="block text-sm font-medium text-[var(--text-color)] mb-1">Género</label>
           <div class="relative">
             <select
               id="gender-mobile"
@@ -491,31 +548,22 @@
               <option value="2">Mujer</option>
               <option value="3">Prefiero no decirlo</option>
             </select>
-            <span
-              class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
-            >
+            <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
               <i class="fi fi-br-angle-down text-[var(--text-muted)]"></i>
             </span>
           </div>
-          <p
-            *ngIf="submitted && f['gender'].errors?.['required']"
-            class="mt-1 text-xs text-[var(--discount-color)]"
-          >
-            Por favor, selecciona una opción
-          </p>
+          @if (submitted && f['gender'].errors?.['required']) {
+            <p class="mt-1 text-xs text-[var(--discount-color)]">
+              Por favor, selecciona una opción
+            </p>
+          }
         </div>
 
         <!-- Contraseña -->
         <div class="mb-4">
-          <label
-            for="password-mobile"
-            class="block text-sm font-medium text-[var(--text-color)] mb-1"
-            >Contraseña</label
-          >
+          <label for="password-mobile" class="block text-sm font-medium text-[var(--text-color)] mb-1">Contraseña</label>
           <div class="relative">
-            <span
-              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-            >
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <i class="fi fi-br-lock text-[var(--text-muted)]"></i>
             </span>
             <input
@@ -530,48 +578,34 @@
               (click)="togglePasswordVisibility()"
               class="absolute inset-y-0 right-0 pr-3 flex items-center text-[var(--text-muted)]"
             >
-              <i
-                [class]="showPassword ? 'fi fi-br-eye' : 'fi fi-br-eye-crossed'"
-              ></i>
+              <i [class]="showPassword ? 'fi fi-br-eye' : 'fi fi-br-eye-crossed'"></i>
             </button>
           </div>
-          <div *ngIf="f['password'].value" class="flex items-center gap-2 mt-1">
-            <div
-              class="h-1 flex-grow rounded-full bg-[var(--border-color)] overflow-hidden"
-            >
-              <div
-                [ngClass]="getPasswordStrengthClass()"
-                class="h-full transition-all duration-300"
-              ></div>
+          @if (f['password'].value) {
+            <div class="flex items-center gap-2 mt-1">
+              <div class="h-1 flex-grow rounded-full bg-[var(--border-color)] overflow-hidden">
+                <div [ngClass]="getPasswordStrengthClass()" class="h-full transition-all duration-300"></div>
+              </div>
+              <span class="text-xs text-[var(--text-color)]">{{ getPasswordStrengthText() }}</span>
             </div>
-            <span class="text-xs text-[var(--text-color)]">{{
-              getPasswordStrengthText()
-            }}</span>
-          </div>
-          <div
-            *ngIf="submitted && f['password'].errors"
-            class="mt-1 text-xs text-[var(--discount-color)]"
-          >
-            <p *ngIf="f['password'].errors['required']">
-              La contraseña es obligatoria
-            </p>
-            <p *ngIf="f['password'].errors['minlength']">
-              La contraseña debe tener al menos 6 caracteres
-            </p>
-          </div>
+          }
+          @if (submitted && f['password'].errors) {
+            <div class="mt-1 text-xs text-[var(--discount-color)]">
+              @if (f['password'].errors['required']) {
+                <p>La contraseña es obligatoria</p>
+              }
+              @if (f['password'].errors['minlength']) {
+                <p>La contraseña debe tener al menos 6 caracteres</p>
+              }
+            </div>
+          }
         </div>
 
         <!-- Confirmar contraseña -->
         <div>
-          <label
-            for="confirmPassword-mobile"
-            class="block text-sm font-medium text-[var(--text-color)] mb-1"
-            >Confirmar contraseña</label
-          >
+          <label for="confirmPassword-mobile" class="block text-sm font-medium text-[var(--text-color)] mb-1">Confirmar contraseña</label>
           <div class="relative">
-            <span
-              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-            >
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <i class="fi fi-br-lock text-[var(--text-muted)]"></i>
             </span>
             <input
@@ -586,36 +620,27 @@
               (click)="toggleConfirmPasswordVisibility()"
               class="absolute inset-y-0 right-0 pr-3 flex items-center text-[var(--text-muted)]"
             >
-              <i
-                [class]="
-                  showConfirmPassword ? 'fi fi-br-eye' : 'fi fi-br-eye-crossed'
-                "
-              ></i>
+              <i [class]="showConfirmPassword ? 'fi fi-br-eye' : 'fi fi-br-eye-crossed'"></i>
             </button>
           </div>
-          <div
-            *ngIf="submitted && f['confirmPassword'].errors"
-            class="mt-1 text-xs text-[var(--discount-color)]"
-          >
-            <p *ngIf="f['confirmPassword'].errors['required']">
-              Debe confirmar la contraseña
-            </p>
-            <p *ngIf="f['confirmPassword'].errors['matching']">
-              Las contraseñas no coinciden
-            </p>
-          </div>
+          @if (submitted && f['confirmPassword'].errors) {
+            <div class="mt-1 text-xs text-[var(--discount-color)]">
+              @if (f['confirmPassword'].errors['required']) {
+                <p>Debe confirmar la contraseña</p>
+              }
+              @if (f['confirmPassword'].errors['matching']) {
+                <p>Las contraseñas no coinciden</p>
+              }
+            </div>
+          }
         </div>
       </div>
 
       <!-- Términos y preferencias -->
       <div>
-        <h2
-          class="text-lg font-semibold text-[var(--text-color)] mb-4 relative"
-        >
+        <h2 class="text-lg font-semibold text-[var(--text-color)] mb-4 relative">
           Términos y preferencias
-          <span
-            class="absolute bottom-[-5px] left-0 w-10 h-1 bg-[var(--secondary-color)] rounded-full"
-          ></span>
+          <span class="absolute bottom-[-5px] left-0 w-10 h-1 bg-[var(--secondary-color)] rounded-full"></span>
         </h2>
 
         <!-- Newsletter -->
@@ -628,12 +653,8 @@
               class="w-4 h-4 bg-[var(--card-background-color)] border border-[var(--border-color)] rounded focus:ring-[var(--secondary-color)] text-[var(--secondary-color)]"
             />
           </div>
-          <label
-            for="newsletter-mobile"
-            class="ml-2 text-sm text-[var(--text-color)]"
-          >
-            Quiero recibir ofertas exclusivas, novedades y descuentos
-            personalizados
+          <label for="newsletter-mobile" class="ml-2 text-sm text-[var(--text-color)]">
+            Quiero recibir ofertas exclusivas, novedades y descuentos personalizados
           </label>
         </div>
 
@@ -647,26 +668,18 @@
               class="w-4 h-4 bg-[var(--card-background-color)] border border-[var(--border-color)] rounded focus:ring-[var(--secondary-color)] text-[var(--secondary-color)]"
             />
           </div>
-          <label
-            for="terms-mobile"
-            class="ml-2 text-sm text-[var(--text-color)]"
-          >
+          <label for="terms-mobile" class="ml-2 text-sm text-[var(--text-color)]">
             He leído y acepto los
-            <a routerLink="/terms" class="text-[var(--secondary-color)]"
-              >términos y condiciones</a
-            >
+            <a routerLink="/terms" class="text-[var(--secondary-color)]">términos y condiciones</a>
             y la
-            <a routerLink="/privacy" class="text-[var(--secondary-color)]"
-              >política de privacidad</a
-            >
+            <a routerLink="/privacy" class="text-[var(--secondary-color)]">política de privacidad</a>
           </label>
         </div>
-        <p
-          *ngIf="submitted && f['terms'].errors?.['required']"
-          class="mt-1 text-xs text-[var(--discount-color)]"
-        >
-          Debes aceptar los términos y condiciones
-        </p>
+        @if (submitted && f['terms'].errors?.['required']) {
+          <p class="mt-1 text-xs text-[var(--discount-color)]">
+            Debes aceptar los términos y condiciones
+          </p>
+        }
       </div>
 
       <!-- Botón de registro -->
@@ -682,11 +695,7 @@
       <div class="text-center mt-6">
         <p class="text-sm text-[var(--text-color)]">
           ¿Ya tienes una cuenta?
-          <a
-            routerLink="/login"
-            class="text-[var(--secondary-color)] font-medium"
-            >Iniciar sesión</a
-          >
+          <a routerLink="/login" class="text-[var(--secondary-color)] font-medium">Iniciar sesión</a>
         </p>
       </div>
     </form>

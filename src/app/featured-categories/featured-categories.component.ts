@@ -25,4 +25,22 @@ export class FeaturedCategoriesComponent implements OnInit {
   constructor() {}
   
   ngOnInit(): void {}
+
+  // Añade este método en tu featured-categories.component.ts
+  getCategoryIcon(categoryCode: string): string {
+    // Mapeo de códigos de categoría a clases de iconos
+    const icons: { [key: string]: string } = {
+      'electronic': 'fi-br-computer',  
+      'clothes': 'fi-br-tshirt',     
+      'books': 'fi-br-book',  
+      'home': 'fi-br-home',           
+      'toys': 'fi-br-baby',             
+      'sports': 'fi-br-basketball',     
+      'kitchen': 'fi-br-utensils',      
+      'drugs': 'fi-br-medicine',        
+      'games': 'fi-br-gamepad'         
+    };
+    
+    return icons[categoryCode] || 'fi-br-shopping-bag';
+  }
 }

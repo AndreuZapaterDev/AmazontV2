@@ -34,6 +34,8 @@ export class SignUpComponent implements OnInit {
       {
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
+        birthdate: ['', Validators.required],
+        address: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
         phone: ['', [Validators.required, Validators.pattern('^[0-9]{9}$')]],
         gender: ['', Validators.required],
@@ -130,8 +132,8 @@ export class SignUpComponent implements OnInit {
     const perfil_usuario = {
       nombre: this.signupForm.value.firstName,
       apellidos: this.signupForm.value.lastName,
-      // fecha_nacimiento: this.signupForm.value.birthdate,
-      // direccion: this.signupForm.value.address,
+      fecha_nacimiento: this.signupForm.value.birthdate,
+      direccion: this.signupForm.value.address,
       telefono: this.signupForm.value.phone,
       genero: this.signupForm.value.gender,
     };
@@ -170,7 +172,6 @@ export class SignUpComponent implements OnInit {
       return;
     }
 
-    // Aquí iría la lógica para enviar los datos al servidor
     console.log('Formulario enviado:', this.signupForm.value);
 
     // Por ahora, simplemente mostraremos una alerta

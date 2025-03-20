@@ -116,7 +116,7 @@
     </div>
   </nav>
   
-  <!-- Menú desplegable (se mostrará/ocultará según el estado) -->
+  <!-- Menú desplegable -->
   <div 
     class="fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out"
     [ngClass]="{'translate-x-0': isMobileMenuOpen, '-translate-x-full': !isMobileMenuOpen}">
@@ -200,15 +200,6 @@
             <img src="/images/circle_uk.png" alt="English" class="mr-2 h-5 w-5">
             <span class="text-sm text-gray-700">EN</span>
           </button>
-        </div>
-      </div>
-      
-      <!-- Tema -->
-      <div class="px-4 py-2">
-        <p class="mb-2 text-sm font-medium text-gray-500">Tema</p>
-        <div class="flex items-center">
-          <span class="mr-3 text-sm text-gray-700">Cambiar tema</span>
-          <app-dark-mode></app-dark-mode>
         </div>
       </div>
     </div>
