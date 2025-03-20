@@ -45,8 +45,16 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/home']);
         },
         error: (error: any) => {
-          // Manejar errores de inicio de sesión
-          // console.error(error);
+          console.error('Error en login:', error); 
+          
+          // Mostrar mensaje al usuario
+          if (error.status === 401) {
+            alert('Credenciales incorrectas. Por favor, verifica tu email y contraseña.');
+          } else if (error.status === 0) {
+            alert('No se pudo conectar con el servidor. Verifica que el backend esté funcionando.');
+          } else {
+            alert('Ocurrió un error al iniciar sesión. Inténtalo de nuevo más tarde.');
+          }
         },
       });
   }

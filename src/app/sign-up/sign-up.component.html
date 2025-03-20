@@ -92,24 +92,26 @@
           <!-- Fecha de nacimiento y dirección -->
           <div class="form-row">
             <div class="form-group">
-              <label for="address">Dirección</label>
+              <label for="birthdate">Fecha de nacimiento</label>
               <div class="input-container">
-                <i class="fi fi-br-map-marker"></i>
+                <i class="fi fi-br-calendar"></i>
                 <input
-                  type="text"
-                  id="address"
-                  formControlName="address"
-                  placeholder="Tu dirección completa"
+                  type="date"
+                  id="birthdate"
+                  formControlName="birthdate"
+                  placeholder="DD/MM/AAAA"
                 />
-                @if (f['address'].touched) {
-                <div class="input-status" [class.valid]="!f['address'].errors">
+                @if (f['birthdate'].touched) {
+                <div class="input-status" [class.valid]="!f['birthdate'].errors">
                   <i class="fi fi-br-check ml-1"></i>
                 </div>
                 }
               </div>
-              @if (submitted && f['address'].errors && f['address'].errors['required']) {
+              @if (submitted && f['birthdate'].errors) {
               <div class="error-message">
-                <span>La dirección es obligatoria</span>
+                @if (f['birthdate'].errors['required']) {
+                <span>La fecha de nacimiento es obligatoria</span>
+                }
               </div>
               }
             </div>
