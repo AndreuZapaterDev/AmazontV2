@@ -182,5 +182,8 @@ export class SignUpComponent implements OnInit {
       alert('¡Registro exitoso! Redirigiendo al inicio de sesión.');
       this.router.navigate(['/login']);
     }, 1000);
+
+    // Llamar a la función register para realizar el registro en el backend
+    this.register();
   }
 }
