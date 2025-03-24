@@ -127,8 +127,7 @@ export class SignUpComponent implements OnInit {
   }
 
   register() {
-    console.log('Formulario enviado:', this.signupForm.value);
-    // Hay que transformar los datos del formulario a un objeto que coincida con la estructura del modelo de usuario
+    // console.log('Formulario enviado:', this.signupForm.value);
     const perfil_usuario = {
       nombre: this.signupForm.value.firstName,
       apellidos: this.signupForm.value.lastName,
@@ -136,29 +135,33 @@ export class SignUpComponent implements OnInit {
       direccion: this.signupForm.value.address,
       telefono: this.signupForm.value.phone,
       genero: this.signupForm.value.gender,
+      imagen_usuario: 'test',
     };
 
     this.loginService.postPerfilUsuario(perfil_usuario).subscribe({
       next: (data) => {
-        console.log('Perfil de usuario creado:', data);
+        // console.log('Perfil de usuario creado:', data);
         const idPerfilUsuario = data.perfil_usuario;
         const usuario = {
           email: this.signupForm.value.email,
           password: this.signupForm.value.password,
-          rol: 0,
+          rol: 1,
           user_profile_id: idPerfilUsuario,
           // newsletter: this.signupForm.value.newsletter,
         };
+        // console.log('Usuario:', usuario);
         this.loginService.postUsuario(usuario).subscribe({
           next: (data) => {
             console.log('Registro exitoso:', data);
           },
           error: (error) => {
+            return;
             console.error('Error al registrar:', error);
           },
         });
       },
       error: (error) => {
+        return;
         console.error('Error al crear perfil de usuario:', error);
       },
     });
@@ -166,12 +169,12 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
     // Detener si el formulario es inválido
     if (this.signupForm.invalid) {
       return;
     }
-
+    console.log('hola');
+    this.register();
     console.log('Formulario enviado:', this.signupForm.value);
 
     // Por ahora, simplemente mostraremos una alerta
