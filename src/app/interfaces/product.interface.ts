@@ -12,7 +12,7 @@ export interface Product {
   id: number;
   name: string;
   price: number;
-  stars: number;
+  stars?: number;
   url: string;
   category: string;
   discount?: number;
@@ -21,4 +21,8 @@ export interface Product {
   reviews?: Review[];
   stock?: number;
   additionalImages?: string[];
+}
+
+export interface CartItem extends Product {
+  quantity: number;
 }

@@ -123,6 +123,7 @@ export class SignUpComponent implements OnInit {
   }
 
   isDarkTheme(): boolean {
+    // console.log('isDarkTheme');
     return document.documentElement.getAttribute('data-theme') === 'dark';
   }
 
